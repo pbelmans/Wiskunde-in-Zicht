@@ -11,3 +11,5 @@ Dit zijn mogelijke samples om te laten onderzoeken door de studenten:
   - triangle wave
   - sawtooth wave
   - square wave
+
+http://www.noah.org/science/audio_paradox/
