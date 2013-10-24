@@ -1,4 +1,5 @@
 \documentclass[compress, darktitle, framenumber, totalframenumber]{beamer}
+\usepackage{booktabs}
 \usepackage{mathtools}
 \usepackage{tikz}
 \usepackage{wrapfig}
@@ -72,5 +73,112 @@
 
 \section{Hoe kan geluid ons bedotten?}
 % TODO: end the previous section with a remark hinting at the crappy way we experience sound, ties it in with this last section *and* afternoon
+\begin{frame}
+  \frametitle{Illusies met geluid}
+
+  % http://tex.stackexchange.com/questions/129274/showcase-of-optical-illusions-made-with-tex-latex-luatex-context
+  \centering
+  \begin{tikzpicture}[scale = .5]
+    \fill[color=black!40!white] (-6,-6) rectangle (6,6);
+    \foreach \n/\r/\twist in {70/5/12,56/4/-12,42/3/12,28/2/-12}{
+      \foreach \m in {1,3,...,\n}
+        \draw [thick,color=white,shift={(360/\n*\m:\r)},rotate=\twist+360/\n*\m] (-.15,-.15) rectangle (.15,.15);
+      \foreach \m in {2,4,...,\n}
+        \draw [thick,color=black,shift={(360/\n*\m:\r)},rotate=\twist+360/\n*\m] (.15,-.15) rectangle (.15,.15);
+      }
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hoe do-re-mi-fa-sol-la-si ons bedot}
+
+  We weten nu dat
+  \begin{center}
+    \includegraphics{scores/scale-cropped}
+  \end{center}
+  overeenkomt met
+  \begin{center}
+    \begin{tabular}[h]{cccccccc}
+      do & re & mi & fa & sol & la & si \\\midrule
+      131Hz & 147Hz & 165Hz & 175Hz & 196Hz & 220Hz & 247Hz
+    \end{tabular}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Een oneindig stijgende toonladder}
+
+  Nu gebruiken we alle twaalf tonen:
+  \begin{center}
+    \includegraphics{scores/scale-full-cropped}
+  \end{center}
+  De frequenties zijn niet zo belangrijk nu\ldots
+\end{frame}
+
+\begin{frame}
+  \frametitle{Een toonladder}
+  We luisteren:
+  \pause
+  \begin{center}
+    \includegraphics{scores/endless-cropped}
+  \end{center}
+  \pause
+  Dezelfde toonladder \alert{herhaalt} zich, zonder te stijgen!
+\end{frame}
+
+\begin{frame}
+  \frametitle{Wat is er aan de hand?}
+
+  We analyseren het geluid
+  % TODO
+\end{frame}
+
+\begin{frame}
+  \frametitle{Observaties}
+
+  \begin{enumerate}
+    \item (alles is een beetje te laag gestemd)
+    \item er is geen vastomlijnde grondtoon
+    \item de duidelijkste frequentie wordt \alert{zwakker}
+    \item de nauwelijks aanwezige laagste frequentie wordt \alert{sterker}
+    \item de laatste toon heeft dezelfde samenstelling als de eerste
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Herhaalde geluidsanalyse}
+
+  We analyseren meerdere kopies van het fragment
+  % TODO
+\end{frame}
+
+\begin{frame}
+  \frametitle{Observaties}
+
+  \begin{enumerate}
+    \item we horen de overgang niet, maar \alert{zien} hem wel
+    \item exponenti\"eel stijgend
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Paradox van Shepard}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Een oneindig dalende glissando}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Paradox van Shepard--Risset}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Een oneindig versnellende beat}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Paradox van Risset}
+\end{frame}
 \end{document}
 

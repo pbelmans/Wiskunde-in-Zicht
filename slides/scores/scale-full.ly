@@ -9,8 +9,8 @@
 
 \score {
   \relative a {
-    \time 7/4
-    c d e f g a b
+    \time 12/4
+    c cis d dis e f fis g gis a ais b
   } 
 
   \layout { 

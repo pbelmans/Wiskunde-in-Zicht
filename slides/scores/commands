@@ -1,3 +1,9 @@
 # this should be a shell file or Makefile
 lilypond scale.ly
 pdfcrop scale.pdf scale-cropped.pdf
+
+lilypond scale-full.ly
+pdfcrop scale-full.pdf scale-full-cropped.pdf
+
+lilypond endless.ly
+pdfcrop endless.pdf endless-cropped.pdf
