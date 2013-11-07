@@ -1,6 +1,7 @@
 \documentclass[compress, darktitle, framenumber, totalframenumber]{beamer}
 \usepackage{booktabs}
 \usepackage{mathtools}
+\usepackage{siunitx}
 \usepackage{tikz}
 \usepackage{wasysym}
 \usepackage{wrapfig}
@@ -61,6 +62,31 @@
 \section{Wat zijn boventonen?}
 % TODO refer to last part of talk, and afternoon
 
+\begin{frame}
+  \frametitle{Staande golven}
+
+  We experimenteren met touw
+\end{frame}
+
+\begin{frame}
+  \frametitle{Boventonen}
+
+  \centering
+  \begin{tikzpicture}[scale = .7]
+    \foreach \k in {1,...,7} {
+      \draw[smooth, domain = 0:3*pi, samples = 100] plot (\x,{sin(60*\k*\x/pi)/5-\k});
+      \draw[smooth, domain = 0:3*pi, samples = 100] plot (\x,{-sin(60*\k*\x/pi)/5-\k});
+      \draw[fill] (0,-\k) circle (1pt);
+      \draw[fill] (3*pi,-\k) circle (1pt);
+    };
+
+    \draw (3*pi,-1) node[above, uablue, font = \tiny] {$1$};
+    \foreach \k in {2,...,7} {
+      \draw[fill, uablue!60] (3*pi/\k,-\k) circle (1pt) node[above, uablue, font = \tiny] {$1/\k$};
+    };
+  \end{tikzpicture}
+\end{frame}
+
 \section{Hoe maken we verschillende noten?}
 
 \section{Wat klinkt er mooi samen en wat niet?}
@@ -69,6 +95,84 @@
 % TODO: answers the question ``why do we have C D E F G A B''
 
 \section{Wat is het probleem met stemmingen?}
+
+\begin{frame}
+  \frametitle{Dezelfde noot, of toch niet?}
+
+  neem een grondnoot (bijvoorbeeld de do), en beschouw
+  \begin{enumerate}
+    \item 7 octaven erboven: opnieuw een do
+      \pause
+    \item 12 kwinten erboven: \\
+      do sol re la mi si fa\# do\# sol\# re\# la\# mi\# si\#
+
+      \includegraphics{scores/circle-cropped.pdf}
+  \end{enumerate}
+  \pause
+  in frequenties:
+  \begin{description}
+    \item[grondnoot:] $\SI{100}{\hertz}$ (om de getallen mooier te maken!)
+    \item[7 octaven:] $2^7\cdot\SI{100}{\hertz}=\SI{12800}{\hertz}$ 
+      \pause
+    \item[12 kwinten:] $(3/2)^{12}\cdot\SI{100}{\hertz}\approx\SI{12975}{\hertz}$
+  \end{description}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Dezelfde noot: si\# = do}
+
+  We brengen alles 7 octaven naar beneden:
+  \begin{description}
+    \item[grondnoot:] $\SI{100}{\hertz}$
+    \item[12 kwinten:] $(3/2)^{12}/2^7\cdot\SI{100}{\hertz}\approx\SI{101.36}{\hertz}$
+  \end{description}
+  \pause
+  \begin{block}{\twonotes\ audiofragment}
+    \texttt{samples/7-12-glissando-400Hz.mp3} \\
+    \texttt{samples/7-12-400Hz.mp3}
+  \end{block}
+  \pause
+  We willen si\# = do zodat we slechts 12 noten moeten gebruiken in onze muziek.
+
+  \begin{alertblock}{Vraag}
+    Is dit de enige mogelijke keuze?
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Waarom het nooit kan kloppen}
+
+  \begin{block}{Antwoord}
+    Dit is niet de enige mogelijke keuze!
+  \end{block}
+  We bouwen onze toonladder op met behulp van octaven en kwinten. En we willen op een bepaald moment twee noten gelijkstellen.
+
+  \pause
+  Dat betekent:
+  \begin{equation}
+    2^n=\left( \frac{3}{2} \right)^m
+  \end{equation}
+  voor~$m$ en~$n$ natuurlijke getallen. Op de vorige slide: $n=7,m=12$.
+  \pause
+  \begin{alertblock}{Vraag}
+    Zijn er perfecte keuzes mogelijk?
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Waarom het nooit kan kloppen}
+
+  \begin{block}{Antwoord}
+    Nee!
+  \end{block}
+  \pause
+  \begin{equation}
+    \begin{aligned}
+      2^n=\left( \frac{3}{2} \right)^m&\Longleftrightarrow 2^{n+m}=3^m
+    \end{aligned}
+  \end{equation}
+  maar het linkerlid is even, het rechterlid oneven.
+\end{frame}
 
 \section{Hoe kunnen we dit oplossen?}
 

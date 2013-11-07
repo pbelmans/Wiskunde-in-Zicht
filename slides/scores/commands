@@ -7,3 +7,6 @@ pdfcrop scale-full.pdf scale-full-cropped.pdf
 
 lilypond endless.ly
 pdfcrop endless.pdf endless-cropped.pdf
+
+lilypond circle.ly
+pdfcrop circle.pdf circle-cropped.pdf
