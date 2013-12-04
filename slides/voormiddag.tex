@@ -55,6 +55,14 @@
 
 \begin{frame}
   \frametitle{Vragen staat vrij}
+
+  Voorkennis (?):
+  \begin{enumerate}
+    \item de sinus
+    \item goniometrische formules
+    \item rekenen met logaritmes
+    \item muziekterminologie
+  \end{enumerate}
 \end{frame}
 
 \section{Wat is geluid?}
@@ -87,9 +95,101 @@
   \end{tikzpicture}
 \end{frame}
 
+\section{Wat klinkt er mooi samen en wat niet?}
+
+\begin{frame}
+  \frametitle{We luisteren naar boventonen}
+
+  De boventonen hebben een sterk verband met de grondtoon, en geven een mooie samenklank.
+
+  \pause
+
+  Als sinussen:
+  \begin{block}{\twonotes\ audiofragmenten}
+    \texttt{samples/440-880.mp3} \\
+    \texttt{samples/440-880-878.mp3} \\
+  \end{block}
+
+  \pause
+  Conclusie:
+  \begin{enumerate}
+    \item gehele veelvouden klinken mooi samen
+    \item n\'et niet gehele veelvouden klinken lelijk
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Nu met echte instrumenten}
+
+  \begin{block}{\twonotes\ audiofragmenten}
+    %TODO we need more samples here! preferably with real instruments!
+  \end{block}
+
+  \pause
+
+  \begin{alertblock}{Conclusie}
+    Ons gehoor houdt van gehele veelvouden.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Zweving}
+
+  Wat gebeurt er als we twee frequenties~$f_1$ en~$f_2$ laten horen?
+  \begin{equation}
+    \sin(f_1t)+\sin(f_2t)=\onslide<1>{?}\onslide<2->{\!\!\!2\sin\left( \frac{f_1+f_2}{2}t \right)\cos\left( \frac{f_1-f_2}{2}t \right)}.
+  \end{equation}
+  
+  \onslide<3->{Wat als~$f_1$ en~$f_2$ bijna hetzelfde zijn?}
+
+  \begin{block}<3>{\twonotes\ audiofragment}
+    %TODO we need more samples here!
+  \end{block}
+
+  \onslide<4->{
+    % TODO add prentje hier on slide 4
+    % first draw two sines, then their sum, then indicate volume
+    \begin{tikzpicture}
+      \draw (0,0) circle (1pt);
+    \end{tikzpicture}
+  }
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Zweving}
+
+  \begin{block}{\twonotes\ audiofragmenten}
+    \texttt{samples/440-880-878.mp3} \\
+    % TODO some other real sound sample showing beating
+  \end{block}
+
+  \pause
+
+  \begin{alertblock}{Definitie}
+    Het luider en stillen worden van het geluid noemen we \emph{zweving} (of \emph{beating} in het Engels).
+  \end{alertblock}
+
+  \begin{enumerate}
+    \item instrumenten die niet goed gestemd zijn geven zulke zwevingen
+    \item zweving kan best vermeden worden (maar soms is het intentioneel, zeker in moderne muziek)
+  \end{enumerate}
+\end{frame}
+
 \section{Hoe maken we verschillende noten?}
 
-\section{Wat klinkt er mooi samen en wat niet?}
+\begin{frame}
+  \frametitle{Gehele veelvouden}
+
+  Muziek met 1 noot zou maar saai zijn. Hoe kiezen we de andere noten? We willen
+  \begin{enumerate}
+    \item \pause mooie samenklank
+    \item \pause genoeg noten om interessante muziek te schrijven
+    \item \pause niet te veel noten om de muziek nog speelbaar te houden
+  \end{enumerate}
+
+  We hebben een goede leidraad voor mogelijke nieuwe noten: de boventonen! De eerste voorwaarde is alvast voldaan.
+\end{frame}
 
 \section{Wat is een stemming?}
 % TODO: answers the question ``why do we have C D E F G A B''
@@ -106,7 +206,7 @@
     \item 12 kwinten erboven: \\
       do sol re la mi si fa\# do\# sol\# re\# la\# mi\# si\#
 
-      \includegraphics{scores/circle-cropped.pdf}
+      \includegraphics{scores/circle-cropped}
   \end{enumerate}
   \pause
   in frequenties:
