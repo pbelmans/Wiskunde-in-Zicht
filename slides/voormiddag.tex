@@ -9,6 +9,27 @@
 
 \mathtoolsset{showonlyrefs}
 
+\newcommand\frequencydiagram[5]{
+  % TODO change number of samples
+  \begin{tikzpicture}[scale = 0.85, domain = 0:10, samples = 500]
+    \draw[very thin] (-0.1,-2.1) grid (10.1,2.1);
+    \draw[thick, ->] (-0.2,0) -- (10.2,0);
+
+    \draw[fill] (0,0) circle (2pt) node [below left] {$0$};
+    \draw[fill] (pi,0) circle (2pt) node [below] {$\pi$};
+    \draw[fill] (2*pi,0) circle (2pt) node [below] {$2\pi$};
+    \draw[fill] (3*pi,0) circle (2pt) node [below] {$3\pi$};
+
+    \draw[color = vividbrown] plot function{sin(#1*#2*x)} node[right] {\SI{#4}{\hertz}};
+    \draw[color = uared] plot function{sin(#1*#3*x)} node[right] {\SI{#5}{\hertz}};
+
+    \pause
+    \draw[color = vividbrown!40] plot function{sin(#1*#2*x)} node[right] {\SI{#4}{\hertz}};
+    \draw[color = uared!40] plot function{sin(#1*#3*x)} node[right] {\SI{#5}{\hertz}};
+    \draw[semithick, color = uablue] plot function{2*sin(#1*(#3+#2)*x/2)*cos(#1*(#3-#2)*x/2)} node[right] {som};
+  \end{tikzpicture}
+}
+
 \usetheme{UniversiteitAntwerpen}
 
 \title{Wisku$\mathbb{N}$de in-$\mathbb{Z}$icht}
@@ -61,7 +82,7 @@
     \item de sinus
     \item goniometrische formules
     \item rekenen met logaritmes
-    \item muziekterminologie
+    \item muziek: noten lezen, enige terminologie
   \end{enumerate}
 \end{frame}
 
@@ -133,27 +154,74 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Zweving}
+  \frametitle{Het samen laten klinken van twee geluidsgolven}
 
   Wat gebeurt er als we twee frequenties~$f_1$ en~$f_2$ laten horen?
   \begin{equation}
     \sin(f_1t)+\sin(f_2t)=\onslide<1>{?}\onslide<2->{\!\!\!2\sin\left( \frac{f_1+f_2}{2}t \right)\cos\left( \frac{f_1-f_2}{2}t \right)}.
   \end{equation}
-  
-  \onslide<3->{Wat als~$f_1$ en~$f_2$ bijna hetzelfde zijn?}
 
-  \begin{block}<3>{\twonotes\ audiofragment}
+  \pause
+  
+  Stel $f_1=\SI{2}{\hertz}$ en $f_2=\SI{3}{\hertz}$:
+
+  \centering
+  \frequencydiagram{2}{1}{1.5}{2}{3}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Voorbeeld}
+
+  Stel $f_1=\SI{3}{\hertz}$ en $f_2=\SI{4}{\hertz}$:
+
+  \begin{center}
+    \frequencydiagram{3}{1}{1.3333}{3}{4}
+  \end{center}
+
+  \onslide<2>{Soms versterken de twee signalen elkaar, soms verzwakken ze elkaar.}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Voorbeeld}
+
+  Stel $f_1=\SI{3}{\hertz}$ en $f_2=\SI{5}{\hertz}$:
+
+  \begin{center}
+    \frequencydiagram{3}{1}{1.666}{3}{5}
+  \end{center}
+
+  \onslide<2>{Golven kunnen \alert{in fase} of \alert{uit fase} zijn.}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Zweving}
+
+  Wat als~$f_1$ en~$f_2$ bijna hetzelfde zijn?
+  
+  Stel $f_1=\SI{8}{\hertz}$, $f_2=\SI{9}{\hertz}$:
+
+  \begin{center}
+    \frequencydiagram{8}{1}{1.125}{8}{9}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Nog meer zweving}
+
+  Stel $f_1=\SI{16}{\hertz}$, $f_2=\SI{17}{\hertz}$:
+
+  \centering
+  \frequencydiagram{16}{1}{1.0625}{16}{17}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Zweving}
+
+  Hoe klinkt dit nu?
+
+  \begin{block}{\twonotes\ audiofragment}
     %TODO we need more samples here!
   \end{block}
-
-  \onslide<4->{
-    % TODO add prentje hier on slide 4
-    % first draw two sines, then their sum, then indicate volume
-    \begin{tikzpicture}
-      \draw (0,0) circle (1pt);
-    \end{tikzpicture}
-  }
-
 \end{frame}
 
 \begin{frame}
@@ -167,7 +235,7 @@
   \pause
 
   \begin{alertblock}{Definitie}
-    Het luider en stillen worden van het geluid noemen we \emph{zweving} (of \emph{beating} in het Engels).
+    Het luider en stiller worden van het geluid noemen we \emph{zweving} (of \emph{beating} in het Engels).
   \end{alertblock}
 
   \begin{enumerate}
@@ -190,6 +258,7 @@
 
   We hebben een goede leidraad voor mogelijke nieuwe noten: de boventonen! De eerste voorwaarde is alvast voldaan.
 \end{frame}
+
 
 \section{Wat is een stemming?}
 % TODO: answers the question ``why do we have C D E F G A B''
