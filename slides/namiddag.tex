@@ -1,4 +1,4 @@
-\documentclass[compress, darktitle, framenumber, mathserif]{beamer}
+\documentclass[compress, darktitle, framenumber]{beamer}
 \usepackage{pgfplots}
 \usepackage{tikz}
 \usepackage{xparse}
@@ -52,8 +52,10 @@
 \begin{itemize}
 \item Geluid is een periodisch signaal (een ``golf '') 
 \item Wiskundig: een functie die afhangt van de tijd zodat $$f(t+P)=f(t),$$ met $P$ de periode.
-\item Hoe beschrijft men deze functies? 
 \end{itemize}
+\begin{alertblock}{Vraag:}
+Hoe beschrijft men deze functies? 
+\end{alertblock}
 \end{frame}
 
 \begin{frame}
@@ -62,8 +64,10 @@
 \item Dit zijn de zgn. goniometrische functies $$f(t)=A\cos (\omega t) \quad \text{en} \quad g(t)=B\sin (\omega t),$$ met $A$ en $B$ de amplitude en $\omega$ de frequentie. 
 \item Amplitude: $\frac{1}{2}$(het verschil tussen piek en dal)
 \item Frequentie: $($afstand tussen twee toppen van de golf$)^{-1}$
-\item Kunnen we deze gebruiken om complexere signalen te beschrijven?  
 \end{itemize}
+\begin{alertblock}{Vraag:}
+Kunnen we deze gebruiken om complexere signalen te beschrijven?  
+\end{alertblock}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -76,7 +80,7 @@
     \draw [>=stealth,<->,thick] (0,2.5) node (yaxis) [above] {$y$}
         |- (3,0) node (xaxis) [right] {$x$};
     % Draw two intersecting lines
-    \draw[red, ultra thick, >=stealth,->] (0,0) coordinate (a_1) -- (2,1.8) node[midway, left]{$\vec{v}$} coordinate (c);
+    \draw[uared!80, ultra thick, >=stealth,->] (0,0) coordinate (a_1) -- (2,1.8) node[midway, left]{$\vec{v}$} coordinate (c);
     % Draw lines indicating intersection with y and x axis. Here we use
     % the perpendicular coordinate system
     \draw[dashed] (yaxis |- c) node[left] {$b$}
@@ -97,9 +101,9 @@ $\implies$ amplitudes $A_n$ en $B_n$ zullen kleiner en kleiner worden naarmate $
 \end{itemize}
 \end{frame}
 
+
 \begin{frame}
   \frametitle{Square wave}
-
   \centering
   \begin{tikzpicture}
     \begin{axis}[
@@ -108,7 +112,7 @@ $\implies$ amplitudes $A_n$ en $B_n$ zullen kleiner en kleiner worden naarmate $
       height = \textheight*.8,
       smooth,
       no markers,
-      samples = 200,
+      samples = 20,
       xtick = {0,3.1415,...,18.8495},
       xticklabels={$0$,$\pi$,$2\pi$,$3\pi$,$4\pi$,$5\pi$,$6\pi$},
       xlabel = {$t$},
@@ -129,9 +133,84 @@ $\implies$ amplitudes $A_n$ en $B_n$ zullen kleiner en kleiner worden naarmate $
   \end{tikzpicture}
 \end{frame}
 
+
+\begin{frame}
+\frametitle{Square wave (2)}
+\centering
+\begin{tikzpicture}[x={(1cm,0.5cm)},z={(0cm,0.5cm)},y={(1cm,-0.2cm)}]
+\draw[->,thick,black!70] (0,6.5,0) -- (3.8,6.5,0) node[above left] {Frequency};
+\draw[->,thick,black!70] (0,0,0) -- (0,6.5,0) node[below right] {Time};
+\draw[->,thick] (0,0,0) -- (0,0,2) node[above] {Magnitude};
+\foreach \y in {0.5,1.5,...,3.5}{
+\draw [cyan!50, domain=0:2*pi,samples=20,smooth] 
+ plot (\y,\x, {sin(4*\y*\x r)/\y });
+\draw[blue, ultra thick] (\y,6.5,0) -- (\y,6.5,1/\y);
+}
+\draw [uared, thick, domain=0:2*pi,samples=200,smooth] 
+plot (0,\x, {sin(4*0.5*\x r)/0.5 + sin(4*1.5*\x r)/1.5 + sin(4*2.5*\x r)/2.5 + sin(4*3.5*\x r)/3.5 + sin(4*4.5*\x r)/4.5 + sin(4*5.5*\x r)/5.5} );
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+\frametitle{Square wave (2)}
+Vorige slide: grafische weergave van eerste 4 termen van fourierreeks:
+\begin{equation}
+s(x)\approx\sin{(t)}+\frac{1}{\pi}\sin{(2t)}+\frac{2}{3\pi}\sin{(3t)}-
+\frac{1}{2\pi}\sin{(4t)}.
+\end{equation}
+Dit is slechts een benadering! $\rightarrow$ Beter en beter naarmate meer termen toevoegen. 
+\begin{block}{Audiofragment:}
+\texttt{Sin\_wave.aup} \\
+\texttt{Square\_wave.aup} 
+\end{block} 
+\end{frame}
+
+
 \begin{frame}
   \frametitle{Sawtooth wave}
+ \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      domain = 0:6*pi,
+      width = \textwidth,
+      height = \textheight*.8,
+      smooth,
+      no markers,
+      samples = 20,
+      xtick = {0,3.1415,...,18.8495},
+      xticklabels={$0$,$\pi$,$2\pi$,$3\pi$,$4\pi$,$5\pi$,$6\pi$},
+      xlabel = {$t$},
+    ]
+      \only<2-3>{\addplot[vividbrown] {2/pi*sin(deg(1*x))/1};}
 
+      \only<3-4>{\addplot[uared!50] {-2/pi*sin(deg(2*x))/2};}
+      \only<4-5>{\addplot[vividbrown] {2/pi*sin(deg(1*x))/1-2/pi*sin(deg(2*x))/2};}
+
+      \only<5-6>{\addplot[uared!50] {2/pi*sin(deg(3*x))/3};}
+      \only<6-7>{\addplot[vividbrown] {2/pi*sin(deg(1*x))/1-2/pi*sin(deg(2*x))/2+2/pi*sin(deg(3*x))/3};}
+
+      \only<7-8>{\addplot[uared!50] {-2/pi*sin(deg(4*x))/4};}
+      \only<8-9>{\addplot[vividbrown] {2/pi*sin(deg(1*x))/1-2/pi*sin(deg(2*x))/2+2/pi*sin(deg(3*x))/3-2/pi*sin(deg(4*x))/4};}
+
+    \addplot[sharp plot, thick] coordinates {(0,0)(pi,1) (pi,-1) (3*pi,1) (3*pi,-1) (5*pi,1) (5*pi,-1) (6*pi,0)};
+    \end{axis}
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+\frametitle{Sawtooth wave (2)}
+Vorige slide: grafische weergave van eerste 4 termen van fourierreeks:
+\begin{equation}
+s(x)\approx\frac{2}{\pi}\sin{(t)}-\frac{1}{\pi}\sin{(2t)}+\frac{2}{3\pi}\sin{(3t)}-
+\frac{1}{2\pi}\sin{(4t)}.
+\end{equation}
+\begin{block}{Audiofragment:}
+\texttt{Sawtooth\_wave.aup}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Guitar samples}
 
 \end{frame}
 
