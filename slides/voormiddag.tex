@@ -31,6 +31,7 @@
 }
 
 \usetheme{UniversiteitAntwerpen}
+\beamertemplatenavigationsymbolsempty
 
 \title{Wisku$\mathbb{N}$de in-$\mathbb{Z}$icht}
 \subtitle{Wiskunde in muziek}
@@ -163,10 +164,27 @@
 
   \pause
 
+  Welke conclusies zijn er te trekken?
+
+  \pause
+
+  \begin{enumerate}
+    \item de factor 2 levert ons dat het signaal tot dubbel zo sterk kan worden;
+    \item de sinus of cosinus in het product kan 0 zijn.
+  \end{enumerate}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Voorbeeld}
+
   Stel $f_1=\SI{2}{\hertz}$ en $f_2=\SI{3}{\hertz}$:
 
-  \centering
-  \frequencydiagram{2}{1}{1.5}{2}{3}
+  \begin{center}
+    \frequencydiagram{2}{1}{1.5}{2}{3}
+  \end{center}
+
+  \onslide<2>{Soms versterken de twee signalen elkaar, soms verzwakken ze elkaar.}
 \end{frame}
 
 \begin{frame}
@@ -178,7 +196,7 @@
     \frequencydiagram{3}{1}{1.3333}{3}{4}
   \end{center}
 
-  \onslide<2>{Soms versterken de twee signalen elkaar, soms verzwakken ze elkaar.}
+  \onslide<2>{Het versterken en verzwakken is (uiteraard) ook periodisch.}
 \end{frame}
 
 \begin{frame}
@@ -212,6 +230,8 @@
 
   \centering
   \frequencydiagram{16}{1}{1.0625}{16}{17}
+
+  \onslide<2>{We zien opnieuw een golfpatroon met frequentie $\SI{1}{\hertz}=\SI{17}{\hertz}-\SI{16}{\hertz}$}
 \end{frame}
 
 \begin{frame}
@@ -249,19 +269,126 @@
 \begin{frame}
   \frametitle{Gehele veelvouden}
 
-  Muziek met 1 noot zou maar saai zijn. Hoe kiezen we de andere noten? We willen
+  Muziek met 1 noot zou maar saai zijn. Hoe kiezen we de andere noten? \pause We willen
   \begin{enumerate}
-    \item \pause mooie samenklank
+    \item mooie samenklank
     \item \pause genoeg noten om interessante muziek te schrijven
     \item \pause niet te veel noten om de muziek nog speelbaar te houden
   \end{enumerate}
 
-  We hebben een goede leidraad voor mogelijke nieuwe noten: de boventonen! De eerste voorwaarde is alvast voldaan.
+  We hebben een goede leidraad voor mogelijke nieuwe noten: de \alert{boventonen}! De eerste voorwaarde is alvast voldaan.
+
+  Hoe gaan we verder?
 \end{frame}
 
+\begin{frame}
+  \frametitle{De kwint}
+
+  De \alert{eerste boventoon} ``klinkt hetzelfde'', de verdubbeling in frequentie levert geen echt verschil op, we noemen dit een \alert{octaaf}.
+
+  \pause
+
+  Om hem te spelen op een snaar moeten we de snaarlengte \emph{halveren}.
+
+  \pause
+  \vspace{1em}
+
+  De \alert{tweede boventoon} (dus 3 maal de grondfrequentie) klinkt w\'el anders!
+
+  \begin{enumerate}
+    \item De snaar \emph{in drie delen} levert deze frequentie als grondtoon.
+    \item \pause De snaar dan weer in lengte verdubbelen levert een mooie toon die niet te ver van de grondtoon ligt: hij is dus $3/2$ keer de grondfrequentie.
+  \end{enumerate}
+  Het resultaat noemen we een \alert{kwint}.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Octaven en kwinten}
+
+  We horen nu de grondtonen met frequenties $\SI{220}{\hertz}$ (= la) en $\SI{330}{\hertz}$ (= mi)
+  \begin{block}{\twonotes\ audiofragmenten}
+    \begin{wrapfigure}{r}{.4\textwidth}
+      \vspace{-.5cm} % weird hack to get position right
+      \centering
+      \includegraphics{scores/fifths-cropped}
+    \end{wrapfigure}
+
+    % TODO these should be made with a real piano sound!
+    \texttt{samples/octave.mp3} \\
+    \texttt{samples/fifth.mp3} \\
+    \texttt{samples/octave-fifth.mp3}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Kwinten visueel}
+
+  \begin{center}
+    \frequencydiagram{22}{1}{1.5}{22}{33}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Kwinten visueel}
+
+  Wat als we net geen verhouding van $3/2$ hebben?
+  \begin{center}
+    \frequencydiagram{22}{1}{1.5454}{22}{34}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{De terts}
+
+  De \alert{vierde boventoon} is een verviervoudiging van de grondfrequentie, dus \alert{twee octaven}.
+
+  \pause
+  \vspace{1em}
+
+  De \alert{vijfde boventoon} is w\'el nieuw. We hebben $5/4$ keer de grondfrequentie.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Octaven, kwinten en tertsen}
+
+  We horen nu de grondtonen met frequenties $\SI{220}{\hertz}$ (= la), $\SI{275}{\hertz}$ (= do\#) en $\SI{330}{\hertz}$ (= mi)
+  \begin{block}{\twonotes\ audiofragmenten}
+    \begin{wrapfigure}{r}{.4\textwidth}
+      \vspace{-.5cm} % weird hack to get position right
+      \centering
+      \includegraphics{scores/major-chord-cropped}
+    \end{wrapfigure}
+
+    \texttt{samples/thirds.mp3} \\
+    \texttt{samples/fifths-thirds.mp3} \\
+    \texttt{samples/major-chord.mp3}
+  \end{block}
+
+  \pause
+
+  We misbruiken hier natuurlijk de notatie die we pas kunnen invoeren als we het systeem volledig bedacht hebben.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Een toonladder bouwen}
+
+  We hebben nu de basis voor onze muziek in handen:
+  \begin{enumerate}
+    \item kwinten;
+    \item tertsen.
+  \end{enumerate}
+  We kunnen deze stapelen, om zo nieuwe noten te vormen.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Pythagoras}
+
+  % music of the spheres etc
+\end{frame}
 
 \section{Wat is een stemming?}
 % TODO: answers the question ``why do we have C D E F G A B''
+% from here on: leave the world of Pythagoras and get your hands dirty on getting it right
 
 \section{Wat is het probleem met stemmingen?}
 

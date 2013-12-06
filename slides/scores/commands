@@ -10,3 +10,9 @@ pdfcrop endless.pdf endless-cropped.pdf
 
 lilypond circle.ly
 pdfcrop circle.pdf circle-cropped.pdf
+
+lilypond fifths.ly
+pdfcrop fifths.pdf fifths-cropped.pdf
+
+lilypond major-chord.ly
+pdfcrop major-chord.pdf major-chord-cropped.pdf
