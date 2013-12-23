@@ -1,5 +1,6 @@
 \documentclass[compress, darktitle, framenumber, totalframenumber]{beamer}
 \usepackage{booktabs}
+\usepackage{marvosym}
 \usepackage{mathtools}
 \usepackage{siunitx}
 \usepackage{tikz}
@@ -11,7 +12,7 @@
 
 \newcommand\frequencydiagram[5]{
   % TODO change number of samples
-  \begin{tikzpicture}[scale = 0.85, domain = 0:10, samples = 500]
+  \begin{tikzpicture}[scale = 0.85, domain = 0:10, samples = 10]
     \draw[very thin] (-0.1,-2.1) grid (10.1,2.1);
     \draw[thick, ->] (-0.2,0) -- (10.2,0);
 
@@ -95,7 +96,13 @@
 \begin{frame}
   \frametitle{Staande golven}
 
-  We experimenteren met touw
+  \begin{block}{\Forward\ filmfragment}
+    \url{http://www.youtube.com/watch?v=-n1d1rycvj4}
+  \end{block}
+
+  \pause
+
+  Als we een periodiek signaal geven, met een geheel veelvoud van de frequentie waarmee het langsheen het touw reist, krijgen we een staande golf.
 \end{frame}
 
 \begin{frame}
@@ -115,6 +122,49 @@
       \draw[fill, uablue!60] (3*pi/\k,-\k) circle (1pt) node[above, uablue, font = \tiny] {$1/\k$};
     };
   \end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Fundamentele grondtoon}
+
+  De frequentie van de grondtoon van een snaar wordt gegeven door de \alert{wet van Mersenne}
+  \begin{equation}
+    f_0=\frac{1}{2L}\sqrt{\frac{T}{\mu}}
+  \end{equation}
+  waarbij
+  \begin{equation}
+    \begin{aligned}
+      L&=\text{lengte} \\
+      T&=\text{spanning op de snaar (= kracht)} \\
+      \mu&=\text{massa per lengte}
+    \end{aligned}
+  \end{equation}
+  \pause
+  \begin{block}{Voorbeeld}
+    $L=\SI{65}{\centi\meter}$, $T=\SI{83}{\newton}\approx\SI{8.5}{\kilo\gram}$, $\mu\approx\SI{0.74}{\gram\per\meter}$ \\
+    $f_0\approx\SI{83}{\hertz}$ en dit is de lage mi op een gitaar
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Boventonen in snaren}
+
+  Als we aan een snaar trekken gaat die trillen:
+  \begin{enumerate}
+    \item met de frequentie van de grondtoon;
+    \item met de frequentie van de boventonen
+  \end{enumerate}
+  want deze versterken zich door het fenomeen van de staande golf, terwijl de andere frequenties grotendeels verdwijnen.
+  \pause
+  \begin{block}{Experiment}
+    \begin{enumerate}
+      \item een losse snaar;
+        \pause
+      \item we halveren de snaar: harmoniek vs.\ fret
+        \pause
+      \item we delen de snaar in drie: harmoniek vs.\ fret
+    \end{enumerate}
+  \end{block}
 \end{frame}
 
 \section{Wat klinkt er mooi samen en wat niet?}
@@ -143,8 +193,16 @@
 \begin{frame}
   \frametitle{Nu met echte instrumenten}
 
-  \begin{block}{\twonotes\ audiofragmenten}
-    %TODO we need more samples here! preferably with real instruments!
+  \begin{block}{Experiment}
+    \begin{enumerate}
+      \item octaaf
+        \pause
+      \item kwint
+        \pause
+      \item septiem
+        \pause
+      \item verkleinde sixt
+    \end{enumerate}
   \end{block}
 
   \pause
