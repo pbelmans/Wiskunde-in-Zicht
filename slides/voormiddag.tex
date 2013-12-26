@@ -4,6 +4,7 @@
 \usepackage{manfnt}
 \usepackage{marvosym}
 \usepackage{mathtools}
+\usepackage{pgfplots}
 \usepackage{siunitx}
 \usepackage{tikz}
 \usepackage{wasysym}
@@ -537,16 +538,40 @@
   \end{alertblock}
 \end{frame}
 
-\section{Wat is een stemming?}
-% TODO: answers the question ``why do we have C D E F G A B''
-% from here on: leave the world of Pythagoras and get your hands dirty on getting it right
-
 \section{Wat is het probleem met stemmingen?}
+
+\begin{frame}
+  \frametitle{Een stemming}
+
+  We moeten dus toonhoogtes afspreken die we zullen gebruiken om muziek te maken. We weten dat
+  \begin{enumerate}
+    \item gehele veelvouden en kleine breuken goed klinken;
+    \item we zweving moeten vermijden;
+    \item de kwint (en de terts) interessante bouwblokken zijn.
+  \end{enumerate}
+  \pause
+  We willen dus:
+  \begin{enumerate}
+    \item mooie kwinten en tertsen
+    \item genoeg noten om interessante muziek te kunnen maken
+    \item niet te veel noten om het niet te moeilijk te maken
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{De kwint als bouwblok}
+
+  We zullen kwinten stapelen:
+  \begin{enumerate}
+    \item elke stap apart klinkt mooi samen
+    \item het houdt verband met de tertsen: 5e versus 3e boventoon
+  \end{enumerate}
+\end{frame}
 
 \begin{frame}
   \frametitle{Dezelfde noot, of toch niet?}
 
-  neem een grondnoot (bijvoorbeeld de do), en beschouw
+  Neem een grondnoot (bijvoorbeeld de do), en beschouw
   \begin{enumerate}
     \item 7 octaven erboven: opnieuw een do
       \pause
@@ -621,7 +646,76 @@
   maar het linkerlid is even, het rechterlid oneven.
 \end{frame}
 
+
 \section{Hoe kunnen we dit oplossen?}
+
+\begin{frame}
+  \frametitle{Geschiedenis}
+
+  De scenario's:
+  \begin{description}
+    \item[Pythagoras] strak vasthouden aan de perfecte verhoudingen, goed in theorie, slecht in praktijk
+    \item[middeleeuwen] variaties op Pythagoras: het ``wolfinterval'' dat ontstaat door de strikte toepassing van Pythagoras' theorie wordt uitgesmeerd over meerdere noten
+    \item[hedendaags] we nemen gelijke stappen, de \alert{gelijkzwevende stemming}
+  \end{description}
+  \pause
+  \begin{block}{Chronologie gelijkzwevende stemming}
+    \begin{enumerate}
+      \item 4e eeuw voor Christus: Aristoxenus
+      \item 1584: Vincenzo Galilei (vader van)
+      \item 1605: Simon Stevin (Belgisch wiskundige!) beschrijft voor het eerst de huidige stemming
+      \item \ldots
+    \end{enumerate}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hoeveel noten hebben we nodig?}
+
+  \begin{center}
+    \begin{tikzpicture}
+      \foreach \t/\n in {1/1, 9/8, 5/4, 4/3, 3/2, 5/3, 15/8, 2/1} {
+        \draw (2, {5*ln(\t/\n)/ln(2)}) --++ (8, 0);
+      };
+      \draw[thick] (2, {5*ln(3/2)/ln(2)}) --++ (8, 0);
+      \draw[thick] (2, {5*ln(1/1)/ln(2)}) --++ (8, 0);
+      \draw[thick] (2, {5*ln(2/1)/ln(2)}) --++ (8, 0);
+  
+      \foreach \k in {5,...,19} {
+        \draw (\k/2,-.5) node {\k};
+        \foreach \m in {0,...,\k} {
+          \draw[fill] (\k/2, 5*\m/\k) circle (1pt);
+        };
+      };
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Grootte van de fout}
+
+  \begin{center}
+    \begin{tikzpicture}
+      \begin{axis}[width = \textwidth, height = .9\textheight]
+        \addplot[uablue, mark = *] table {error.dat};
+      \end{axis}
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Daarom do-re-mi-fa-sol-la-si!}
+
+  \begin{block}{Conclusie}
+    We zien dat \alert{12 gelijke tonen} de volgende eigenschappen heeft:
+    \begin{enumerate}
+      \item bijna perfecte kwint, kwart, seconde
+      \item alles is regelmatig
+      \item niet te veel noten
+      \item houdt steek met de vaststelling rond 7 octaven, 12 kwinten
+    \end{enumerate}
+  \end{block}
+\end{frame}
 
 \section{Hoe kan geluid ons bedotten?}
 % TODO: end the previous section with a remark hinting at the crappy way we experience sound, ties it in with this last section *and* afternoon
