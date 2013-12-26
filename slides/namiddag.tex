@@ -41,11 +41,23 @@
 \newcommand{\C}{\mathbb{C}} % the field of complex number
 \newcommand{\Z}{\mathbb{Z}} % the field of integers
 
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Overzicht}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+
 
 \begin{document}
 \begin{frame}
   \titlepage
 \end{frame}
+
+\section{Inleiding}
+
 
 \begin{frame}
 \frametitle{Wat is geluid}
@@ -103,7 +115,7 @@ $\implies$ amplitudes $A_n$ en $B_n$ zullen kleiner en kleiner worden naarmate $
 
 
 \begin{frame}
-  \frametitle{Square wave}
+  \frametitle{Blokgolf}
   \centering
   \begin{tikzpicture}
     \begin{axis}[
@@ -135,24 +147,24 @@ $\implies$ amplitudes $A_n$ en $B_n$ zullen kleiner en kleiner worden naarmate $
 
 
 \begin{frame}
-\frametitle{Square wave (2)}
+\frametitle{Blokgolf (2)}
 \centering
 \begin{tikzpicture}[x={(1cm,0.5cm)},z={(0cm,0.5cm)},y={(1cm,-0.2cm)}]
-\draw[->,thick,black!70] (0,6.5,0) -- (3.8,6.5,0) node[above left] {Frequency};
-\draw[->,thick,black!70] (0,0,0) -- (0,6.5,0) node[below right] {Time};
-\draw[->,thick] (0,0,0) -- (0,0,2) node[above] {Magnitude};
+\draw[->,thick,black!70] (0,6.5,0) -- (3.8,6.5,0) node[above left] {Frequentie};
+\draw[->,thick,black!70] (0,0,0) -- (0,6.5,0) node[below right] {Tijd};
+\draw[->,thick] (0,0,0) -- (0,0,2) node[above] {Amplitude};
 \foreach \y in {0.5,1.5,...,3.5}{
 \draw [cyan!50, domain=0:2*pi,samples=20,smooth] 
  plot (\y,\x, {sin(4*\y*\x r)/\y });
 \draw[blue, ultra thick] (\y,6.5,0) -- (\y,6.5,1/\y);
 }
-\draw [uared, thick, domain=0:2*pi,samples=200,smooth] 
+\draw [uared, thick, domain=0:2*pi,samples=20,smooth] 
 plot (0,\x, {sin(4*0.5*\x r)/0.5 + sin(4*1.5*\x r)/1.5 + sin(4*2.5*\x r)/2.5 + sin(4*3.5*\x r)/3.5 + sin(4*4.5*\x r)/4.5 + sin(4*5.5*\x r)/5.5} );
 \end{tikzpicture}
 \end{frame}
 
 \begin{frame}
-\frametitle{Square wave (2)}
+\frametitle{Blokgolf (3)}
 Vorige slide: grafische weergave van eerste 4 termen van fourierreeks:
 \begin{equation}
 s(x)\approx\sin{(t)}+\frac{1}{\pi}\sin{(2t)}+\frac{2}{3\pi}\sin{(3t)}-
@@ -165,9 +177,14 @@ Dit is slechts een benadering! $\rightarrow$ Beter en beter naarmate meer termen
 \end{block} 
 \end{frame}
 
+\begin{frame}
+\frametitle{Blokgolf (4)}
+\includegraphics[width=\textwidth]{Sin_wave.png}
+\includegraphics[width=\textwidth]{Square_wave.png}
+\end{frame}
 
 \begin{frame}
-  \frametitle{Sawtooth wave}
+  \frametitle{Zaagtand golf}
  \centering
   \begin{tikzpicture}
     \begin{axis}[
@@ -198,7 +215,7 @@ Dit is slechts een benadering! $\rightarrow$ Beter en beter naarmate meer termen
 \end{frame}
 
 \begin{frame}
-\frametitle{Sawtooth wave (2)}
+\frametitle{Zaagtand golf (2)}
 Vorige slide: grafische weergave van eerste 4 termen van fourierreeks:
 \begin{equation}
 s(x)\approx\frac{2}{\pi}\sin{(t)}-\frac{1}{\pi}\sin{(2t)}+\frac{2}{3\pi}\sin{(3t)}-
@@ -210,8 +227,76 @@ s(x)\approx\frac{2}{\pi}\sin{(t)}-\frac{1}{\pi}\sin{(2t)}+\frac{2}{3\pi}\sin{(3t
 \end{frame}
 
 \begin{frame}
-\frametitle{Guitar samples}
+\frametitle{Zaagtand golf (3)}
+\includegraphics[width=\textwidth]{Sawtooth_wave.png}
+\end{frame}
 
+\section{Gitaar fragmenten}
+
+\begin{frame}
+\frametitle{\'e\'en enkele noot}
+\includegraphics[width=\textwidth]{A-note.png}
+\begin{block}{Audiofragment:}
+\texttt{A-note.aup} 
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{\'e\'en enkele noot(2)}
+\includegraphics[width=\textwidth]{A-harmonic.png}
+\begin{block}{Audiofragment:}
+\texttt{A-harmonic.aup} 
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{\'e\'en enkele noot(3)}
+\includegraphics[width=\textwidth]{C-note.png}
+\begin{block}{Audiofragment:}
+\texttt{C-note.aup} 
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{C-Akkoord}
+\includegraphics[width=\textwidth]{C-powerchord.png}
+\begin{block}{Audiofragment:}
+\texttt{C-powerchord.aup}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{C-Akkoord (2)}
+\includegraphics[width=\textwidth]{C-powerchord-overdriven.png}
+\begin{block}{Audiofragment:}
+\texttt{C-powerchord-overdriven.aup}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{C-Akkoord (3)}
+\includegraphics[width=\textwidth]{C-powerchord-heavily-distorted.png}
+\begin{block}{Audiofragment:}
+\texttt{C-powerchord-heavily-distorted.aup} 
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{C-Akkoord (4)}
+\includegraphics[width=\textwidth]{C-major-chord.png}
+\begin{block}{Audiofragment:}
+\texttt{C-major-chord.aup} 
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Extra}
+\begin{block}{Audiofragment:}
+\texttt{F-sharp-chord.aup} \\
+\texttt{F-sharp-chord-overdriven.aup} \\
+\end{block}
 \end{frame}
 
 \begin{frame}
