@@ -1,5 +1,7 @@
 \documentclass[compress, darktitle, framenumber, totalframenumber]{beamer}
+\usepackage[greek, dutch]{babel}
 \usepackage{booktabs}
+\usepackage{manfnt}
 \usepackage{marvosym}
 \usepackage{mathtools}
 \usepackage{siunitx}
@@ -33,6 +35,14 @@
 
 \usetheme{UniversiteitAntwerpen}
 \beamertemplatenavigationsymbolsempty
+
+\newtranslation[to=dutch]{Section}{Deel}
+\AtBeginSection{\frame{\sectionpage}}
+
+\newenvironment{danger}{\medbreak\noindent\hangindent=2pc\hangafter=-2%
+  \clubpenalty=10000%
+  \hbox to0pt{\hskip-\hangindent\dbend\hfill}\small\ignorespaces}%
+  {\medbreak\par}
 
 \title{Wisku$\mathbb{N}$de in-$\mathbb{Z}$icht}
 \subtitle{Wiskunde in muziek}
@@ -88,10 +98,20 @@
   \end{enumerate}
 \end{frame}
 
-\section{Wat is geluid?}
 
 \section{Wat zijn boventonen?}
 % TODO refer to last part of talk, and afternoon
+
+\begin{frame}
+  \frametitle{Wat is geluid?}
+
+  Geluid is een \emph{golf}: een verandering in de luchtdruk.
+  \pause
+  \begin{enumerate}
+    \item Hoe kunnen we geluid analyseren?
+    \item Hoe kunnen we onze analyse interpreteren?
+  \end{enumerate}
+\end{frame}
 
 \begin{frame}
   \frametitle{Staande golven}
@@ -142,7 +162,7 @@
   \pause
   \begin{block}{Voorbeeld}
     $L=\SI{65}{\centi\meter}$, $T=\SI{83}{\newton}\approx\SI{8.5}{\kilo\gram}$, $\mu\approx\SI{0.74}{\gram\per\meter}$ \\
-    $f_0\approx\SI{83}{\hertz}$ en dit is de lage mi op een gitaar
+    $\Rightarrow f_0\approx\SI{83}{\hertz}$ en dit is de lage mi op een gitaar
   \end{block}
 \end{frame}
 
@@ -166,6 +186,26 @@
     \end{enumerate}
   \end{block}
 \end{frame}
+
+\begin{frame}
+  \frametitle{Boventonen}
+
+  \centering
+  \begin{tikzpicture}[scale = .7]
+    \foreach \k in {1,...,7} {
+      \draw[smooth, domain = 0:3*pi, samples = 100] plot (\x,{sin(60*\k*\x/pi)/5-\k});
+      \draw[smooth, domain = 0:3*pi, samples = 100] plot (\x,{-sin(60*\k*\x/pi)/5-\k});
+      \draw[fill] (0,-\k) circle (1pt);
+      \draw[fill] (3*pi,-\k) circle (1pt);
+    };
+
+    \draw (3*pi,-1) node[above, uablue, font = \tiny] {$1$};
+    \foreach \k in {2,...,7} {
+      \draw[fill, uablue!60] (3*pi/\k,-\k) circle (1pt) node[above, uablue, font = \tiny] {$1/\k$};
+    };
+  \end{tikzpicture}
+\end{frame}
+
 
 \section{Wat klinkt er mooi samen en wat niet?}
 
@@ -195,20 +235,20 @@
 
   \begin{block}{Experiment}
     \begin{enumerate}
-      \item octaaf
+      \item octaaf ($2:1$)
         \pause
-      \item kwint
+      \item kwint ($3:2$)
         \pause
-      \item septiem
+      \item septiem ($15:8$)
         \pause
-      \item verkleinde sixt
+      \item kleine sixt ($11:7$)
     \end{enumerate}
   \end{block}
 
   \pause
 
   \begin{alertblock}{Conclusie}
-    Ons gehoor houdt van gehele veelvouden.
+    Ons gehoor houdt van gehele veelvouden en verhoudingen van kleine getallen.
   \end{alertblock}
 \end{frame}
 
@@ -321,6 +361,7 @@
     \item zweving kan best vermeden worden (maar soms is het intentioneel, zeker in moderne muziek)
   \end{enumerate}
 \end{frame}
+
 
 \section{Hoe maken we verschillende noten?}
 
@@ -438,10 +479,62 @@
   We kunnen deze stapelen, om zo nieuwe noten te vormen.
 \end{frame}
 
-\begin{frame}
-  \frametitle{Pythagoras}
 
-  % music of the spheres etc
+\section{Een historisch intermezzo}
+
+\begin{frame}
+  \frametitle{Musica universalis}
+
+  Pythagoras:
+  \begin{enumerate}
+    \item toonhoogte staat in verband met de lengte van een snaar
+    \item de 7 hemellichamen volgen dezelfde regels
+  \end{enumerate}
+
+  \pause
+  Voor hem waren muziektheorie en astronomie nauw verbonden:
+  \begin{enumerate}
+    \item astronomie is \alert{zichtbare} regelmaat,
+    \item muziek is \alert{hoorbare} regelmaat,
+  \end{enumerate}
+  en beiden gaan over \alert{``perfecte'' verhoudingen}.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Musica universalis}
+
+  \begin{block}{Plinius de oudere, Naturalis Historia, 77--79 n.C.}
+    Sed Pythagoras interdum et musica ratione appellat quantum absit a terra luna, ab ea ad Mercurium dimidium spatii et ab eo ad Veneris, a quo ad solem sescuplum, a sole ad Martem tonum [id est quantum ad lunam a terra], ab eo ad Iovem dimidium et ab eo ad Saturni, et inde sescuplum ad signiferum; ita septem tonis effici quam \greektext di`a paswn 'armon'ian \latintext hoc est universitatem concentus; in ea Saturnum Dorio moveri phthongo, Iovem Phrygio et in reliquis similia, iucunda magis quam necessaria subtilitate.
+  \end{block}
+
+  \pause
+
+  Dit \alert{geocentrisch model} is natuurlijk onzin.
+\end{frame}
+
+\begin{frame}[plain]
+  \centering
+  \includegraphics[width=6cm]{images/spheres}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Baanresonantie}
+
+  \begin{block}{Pythagoras had overigens gelijk}
+    Sommige hemellichamen bewegen w\'el in een mooie verhouding:
+    \begin{enumerate}
+      \item Pluto--Neptunus: $3:2$
+      \item Io--Europa--Ganymedes (manen van Jupiter): $4:2:1$
+    \end{enumerate}
+  \end{block}
+
+  \pause
+
+  \begin{alertblock}{Chronologie}
+    \begin{danger}
+      Maar geen van deze objecten was reeds ontdekt ten tijde van Pythagoras! Laat staan zichtbaar zonder telescopen.
+    \end{danger}
+  \end{alertblock}
 \end{frame}
 
 \section{Wat is een stemming?}
