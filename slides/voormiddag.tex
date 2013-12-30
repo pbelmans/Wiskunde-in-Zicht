@@ -354,19 +354,9 @@
 \begin{frame}
   \frametitle{Zweving}
 
-  Hoe klinkt dit nu?
-
-  \begin{block}{\twonotes\ audiofragment}
-    %TODO we need more samples here!
-  \end{block}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Zweving}
-
   \begin{block}{\twonotes\ audiofragmenten}
     \texttt{samples/440-880-878.mp3} \\
-    % TODO some other real sound sample showing beating
+    experiment
   \end{block}
 
   \pause
@@ -403,13 +393,13 @@
   \frametitle{De kwint}
 
   De \alert{eerste boventoon} ``klinkt hetzelfde'', de verdubbeling in frequentie levert geen echt verschil op, we noemen dit een \alert{octaaf}.
-
   \pause
-
   Om hem te spelen op een snaar moeten we de snaarlengte \emph{halveren}.
+  \begin{block}{Experiment}
+    halveer de snaarlengte
+  \end{block}
 
   \pause
-  \vspace{1em}
 
   De \alert{tweede boventoon} (dus 3 maal de grondfrequentie) klinkt w\'el anders!
 
@@ -417,6 +407,11 @@
     \item De snaar \emph{in drie delen} levert deze frequentie als grondtoon.
     \item \pause De snaar dan weer in lengte verdubbelen levert een mooie toon die niet te ver van de grondtoon ligt: hij is dus $3/2$ keer de grondfrequentie.
   \end{enumerate}
+  \begin{block}{Experiment}
+    een derde van de snaarlengte \\
+    twee derde van de snaarlengte
+  \end{block}
+  \pause
   Het resultaat noemen we een \alert{kwint}.
 \end{frame}
 
@@ -453,6 +448,8 @@
   \begin{center}
     \frequencydiagram{22}{1}{1.5454}{22}{34}
   \end{center}
+  \pause
+  We zien \alert{zweving} optreden.
 \end{frame}
 
 \begin{frame}
@@ -464,6 +461,12 @@
   \vspace{1em}
 
   De \alert{vijfde boventoon} is w\'el nieuw. We hebben $5/4$ keer de grondfrequentie.
+
+  \begin{block}{Experiment}
+    (grote) tertsen
+  \end{block}
+  \pause
+  Merk op, de fretten van een gitaar staan steeds dichter bij elkaar.
 \end{frame}
 
 \begin{frame}
@@ -582,7 +585,7 @@
   We zullen kwinten stapelen:
   \begin{enumerate}
     \item elke stap apart klinkt mooi samen
-    \item het houdt verband met de tertsen: 5e versus 3e boventoon
+    \item het houdt verband met de tertsen: 5e versus 3e (= 6e) boventoon: na 4 kwinten (= 30e boventoon) hebben we een veelvoud van de 5e boventoon bereikt
   \end{enumerate}
 \end{frame}
 
@@ -593,7 +596,7 @@
   \begin{enumerate}
     \item 7 octaven erboven: opnieuw een do
       \pause
-    \item 12 kwinten erboven: \\
+    \item 12 kwinten erboven: \alert{kwintencirkel} \\
       do sol re la mi si fa\# do\# sol\# re\# la\# mi\# si\#
 
       \includegraphics{scores/circle-cropped}
@@ -622,7 +625,7 @@
     \texttt{samples/7-12-400Hz.mp3}
   \end{block}
   \pause
-  We willen si\# = do zodat we slechts 12 noten moeten gebruiken in onze muziek.
+  We willen (?) si\# = do zodat we slechts 12 noten moeten gebruiken in onze muziek.
 
   \begin{alertblock}{Vraag}
     Is dit de enige mogelijke keuze?
@@ -734,6 +737,84 @@
     \end{enumerate}
   \end{block}
 \end{frame}
+
+
+\section{Rekenen met toonhoogtes}
+
+\begin{frame}
+  \frametitle{Frequenties zijn onhandig}
+
+  Het rekenen met frequenties is een \alert{absolute} manier van werken. \pause De problemen:
+  \begin{enumerate}
+    \item afhankelijk van de gekozen basisfrequentie (tegenwoordig $\SI{440}{\hertz}$);
+    \item afhankelijk van de gekozen octaaf;
+    \item onhandig rekenen: we werken met een \alert{exponenti\"ele schaal}, terwijl het aantal noten wel constant blijft
+  \end{enumerate}
+  \begin{center}
+    \begin{tikzpicture}
+      \foreach \k in {0,...,36} \draw [fill] ({exp(1+\k/12)/3},0) circle (.5pt);
+      \foreach \k in {0,1,2,3} \draw [fill] ({exp(1+\k)/3},0) circle (1pt) node [below] {do};
+      \foreach \k in {0,1,2} \draw [fill, uared] ({exp(1+\k+5/12)/3},0) circle (1pt) node [below] {fa};
+      \foreach \k in {0,1,2} \draw [fill, uared] ({exp(1+\k+7/12)/3},0) circle (1pt) node [below] {sol};
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Het alternatief}
+  
+  Daarom willen we een \alert{relatieve} manier van werken!
+  \begin{enumerate}
+    \item onafhankelijk van octaaf en basisfrequentie;
+    \item een \alert{lineaire schaal}
+  \end{enumerate}
+  \begin{center}
+    \begin{tikzpicture}
+      \foreach \k in {0,...,36} \draw [fill] ({\k/6},0) circle (.5pt);
+      \foreach \k in {0,1,2,3} \draw [fill] ({12*\k/6},0) circle (1pt) node [below] {do};
+      \foreach \k in {0,1,2} \draw [fill, uared] ({(12*\k+7)/6},0) circle (1pt) node [below] {sol};
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cents}
+
+  We hebben een octaaf in 12 gelijke delen (exponentieel gezien) opgedeeld. Daarom: stel $f_1$ en~$f_2$ de frequenties van twee noten, dan is
+  \begin{equation}
+    1200\cdot\log_2\left( \frac{f_2}{f_1} \right)=1200\cdot\left( \log_2(f_2)-\log_2(f_1) \right)
+  \end{equation}
+  het aantal \alert{cents} van $f_1$ naar $f_2$.
+  \pause
+  De toonladder wordt dus
+  \begin{center}
+    \begin{tikzpicture}
+      \draw (0,0) circle (.1pt) node [above] {\small 0 cents};
+      \draw (5/2,0) circle (.1pt) node [above, xshift = -5pt] {\small 500 cents};
+      \draw (7/2,0) circle (.1pt) node [above, xshift = 15pt] {\small 700 cents};
+      \draw (12/2,0) circle (.1pt) node [above] {\small 1200 cents};
+      \foreach \k in {0,...,12} \draw [fill] ({\k/2},0) circle (.5pt);
+      \foreach \k in {0,1} \draw [fill] ({12*\k/2},0) circle (1pt) node [below] {do};
+      \foreach \k in {0} \draw [fill, uared] ({(12*\k+7)/2},0) circle (1pt) node [below] {sol};
+      \foreach \k in {0} \draw [fill, uared] ({(12*\k+5)/2},0) circle (1pt) node [below] {fa};
+    \end{tikzpicture}
+  \end{center}
+  \pause
+  in plaats van
+  \begin{center}
+    \begin{tikzpicture}
+      \draw ({exp(1+0/12)*1.5},0) circle (.1pt) node [above] {\small $\SI{130.81}{\hertz}$};
+      \draw ({exp(1+5/12)*1.5},0) circle (.1pt) node [above, xshift = -10pt] {\small $\SI{174.61}{\hertz}$};
+      \draw ({exp(1+7/12)*1.5},0) circle (.1pt) node [above, xshift = 10pt] {\small $\SI{196}{\hertz}$};
+      \draw ({exp(1+12/12)*1.5},0) circle (.1pt) node [above] {\small $\SI{261.63}{\hertz}$};
+      \foreach \k in {0,...,12} \draw [fill] ({exp(1+\k/12)*1.5},0) circle (.5pt);
+      \foreach \k in {0,1} \draw [fill] ({exp(1+\k)*1.5},0) circle (1pt) node [below] {do};
+      \foreach \k in {0} \draw [fill, uared] ({exp(1+\k+5/12)*1.5},0) circle (1pt) node [below] {fa};
+      \foreach \k in {0} \draw [fill, uared] ({exp(1+\k+7/12)*1.5},0) circle (1pt) node [below] {sol};
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
 
 \section{Hoe kan geluid ons bedotten?}
 % TODO: end the previous section with a remark hinting at the crappy way we experience sound, ties it in with this last section *and* afternoon
