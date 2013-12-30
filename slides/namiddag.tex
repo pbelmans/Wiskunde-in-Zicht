@@ -78,8 +78,17 @@ Hoe beschrijft men deze functies?
 \item Frequentie: $($afstand tussen twee toppen van de golf$)^{-1}$
 \end{itemize}
 \begin{alertblock}{Vraag:}
+Hoe klinkt zo'n signaal? \\
 Kunnen we deze gebruiken om complexere signalen te beschrijven?  
 \end{alertblock}
+\end{frame}
+
+\begin{frame}
+\frametitle{Sinusgolf}
+\includegraphics[width=\textwidth]{Sin_wave.png}
+\begin{block}{Audiofragment}
+\texttt{Sin\_wave.aup}
+\end{block}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -170,18 +179,19 @@ Vorige slide: grafische weergave van eerste 4 termen van fourierreeks:
 s(x)\approx\sin{(t)}+\frac{1}{\pi}\sin{(2t)}+\frac{2}{3\pi}\sin{(3t)}-
 \frac{1}{2\pi}\sin{(4t)}.
 \end{equation}
-Dit is slechts een benadering! $\rightarrow$ Beter en beter naarmate meer termen toevoegen. 
-\begin{block}{Audiofragment:}
-\texttt{Sin\_wave.aup} \\
-\texttt{Square\_wave.aup} 
-\end{block} 
+\begin{block}{Opmerking:}
+Dit is slechts een benadering! Deze wordt beter en beter naarmate er meer termen worden toegevoegd.
+\end{block}
 \end{frame}
 
 \begin{frame}
 \frametitle{Blokgolf (4)}
-\includegraphics[width=\textwidth]{Sin_wave.png}
 \includegraphics[width=\textwidth]{Square_wave.png}
+\begin{block}{Audiofragment:}
+\texttt{Square\_wave.aup} 
+\end{block} 
 \end{frame}
+
 
 \begin{frame}
   \frametitle{Zaagtand golf}
@@ -221,36 +231,81 @@ Vorige slide: grafische weergave van eerste 4 termen van fourierreeks:
 s(x)\approx\frac{2}{\pi}\sin{(t)}-\frac{1}{\pi}\sin{(2t)}+\frac{2}{3\pi}\sin{(3t)}-
 \frac{1}{2\pi}\sin{(4t)}.
 \end{equation}
-\begin{block}{Audiofragment:}
-\texttt{Sawtooth\_wave.aup}
+\begin{block}{Opmerking:}
+Ook hier geldt: Benadering wordt beter en beter naarmate er meer termen worden toevoegen.
 \end{block}
 \end{frame}
 
 \begin{frame}
 \frametitle{Zaagtand golf (3)}
 \includegraphics[width=\textwidth]{Sawtooth_wave.png}
+\begin{block}{Audiofragment:}
+\texttt{Sawtooth\_wave.aup}
+\end{block}
 \end{frame}
 
 \section{Gitaar fragmenten}
 
 \begin{frame}
+\frametitle{Hoe ontstaat gitaargeluid?}
+\begin{itemize}
+\item Trilling van snaren wordt omgezet in wisselspanning door magnetische spoel: \textit{de pickups}. (Wet van Faraday-Lenz)
+\item Wisselspanning moet versterkt worden om via luidsprekers hoorbare klank op te leveren. 
+\item Meest courant: versterking via vacu\"umbuizen omwille van unieke klank.
+\item Inputspanning van buis begrensd door minimum (z'n voeding) en maximum (op voorhand ingesteld: \textit{bias spanning}).
+\item Binnen deze grenzen: versterking lineair, d.w.z. elke frequentie in het signaal wordt op dezelfde manier versterkt. 
+\item Levert Cleane gitaarklank. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Versterking van gitaargeluid}
+\begin{alertblock}{Vraag:}
+Wat gebeurd er wanneer de inputspanning de maximumspanning nadert?
+\end{alertblock}
+\begin{itemize}
+\item Versterking niet-lineair: kleinere spanningen worden (relatief gezien) meer versterkt dan grotere.
+\item Toppen van de golf worden afgerond: \textit{Overdrive} of \textit{Clipping}.
+\item Boventonen even veelvoud van grondto(o)n(en): vollere en warmere klank!
+\item Distortion: Golftoppen worden afgekapt $\rightarrow$ vreemde componenten in spectrum
+\item Clipping levert typische rocksound.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Versterking van gitaargeluid(2)}
+\includegraphics[width=\textwidth]{clipping.png}
+\end{frame}
+
+\begin{frame}
 \frametitle{\'e\'en enkele noot}
-\includegraphics[width=\textwidth]{A-note.png}
+\includegraphics[width=\textwidth]{A-flat.png}
 \begin{block}{Audiofragment:}
-\texttt{A-note.aup} 
+\texttt{A-flat-note.aup} 
 \end{block}
 \end{frame}
 
 \begin{frame}
 \frametitle{\'e\'en enkele noot(2)}
-\includegraphics[width=\textwidth]{A-harmonic.png}
+\includegraphics[width=\textwidth]{A-flat-harmonic.png}
 \begin{block}{Audiofragment:}
-\texttt{A-harmonic.aup} 
+\texttt{A-flat-harmonic.aup} 
 \end{block}
 \end{frame}
 
 \begin{frame}
-\frametitle{\'e\'en enkele noot(3)}
+\frametitle{\'e\'en enkele noot: conclusie}
+\begin{itemize}
+\item Grondnoot is in beide gevallen duidelijk herkenbaar.
+\item Harmoniek: boventonen altijd dubbel van grondfrequentie. 
+\item Zuivere noot: andere boventonen die typische klankkleur van gitaar vormen. 
+\item Kleinere schijnbaar onverklaarbare pieken door discretisatie van signaal. 
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{C-noot}
 \includegraphics[width=\textwidth]{C-note.png}
 \begin{block}{Audiofragment:}
 \texttt{C-note.aup} 
@@ -280,6 +335,14 @@ s(x)\approx\frac{2}{\pi}\sin{(t)}-\frac{1}{\pi}\sin{(2t)}+\frac{2}{3\pi}\sin{(3t
 \begin{block}{Audiofragment:}
 \texttt{C-powerchord-heavily-distorted.aup} 
 \end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Conclusie: Clipping}
+\begin{itemize}
+\item Clean: akkoordnoten duidelijk terug te vinden. 
+\item Effect van clipping duidelijk zichtbaar in spectra!
+\end{itemize}
 \end{frame}
 
 \begin{frame}
