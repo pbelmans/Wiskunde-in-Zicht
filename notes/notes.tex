@@ -1,0 +1,144 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\hypersetup{hypertexnames = false, bookmarksdepth = 2, bookmarksopen = true, colorlinks, linkcolor = black, citecolor = black, urlcolor = black, pdfstartview={XYZ null null 1}}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage[greek, dutch]{babel}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{thmtools}
+\usepackage{tikz-cd}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{xparse}
+\usepackage{xspace}
+
+\usepackage[T1]{fontenc}
+\usepackage[charter]{mathdesign}
+\usepackage[scaled]{beramono,berasans}
+\usepackage{eucal}
+\usepackage{epstopdf}
+\usepackage{microtype}
+\frenchspacing
+
+\addtolength\parskip{.4ex}
+\setlength\parindent{0cm}
+
+\relpenalty=10000
+\binoppenalty=10000
+
+% todonotes configuration
+\newcounter{todocounter}
+\DeclareDocumentCommand\addreference{g}{\stepcounter{todocounter}\todo[color = blue!30, fancyline]{\thetodocounter. Add reference\IfNoValueF{#1}{: #1}}\xspace}
+\DeclareDocumentCommand\checkthis{g}{\stepcounter{todocounter}\todo[color = red!50, fancyline]{\thetodocounter. Check this\IfNoValueF{#1}{: #1}}\xspace}
+\DeclareDocumentCommand\fixthis{g}{\stepcounter{todocounter}\todo[color = orange!50, fancyline]{\thetodocounter. Fix this\IfNoValueF{#1}{: #1}}\xspace}
+\DeclareDocumentCommand\expand{g}{\stepcounter{todocounter}\todo[color = green!50, fancyline]{\thetodocounter. Expand\IfNoValueF{#1}{: #1}}\xspace}
+\newcommand\removethis{\stepcounter{todocounter}\todo[color=yellow!50]{\thetodocounter. Remove this?}}
+
+\title{Suggesties voor onderzoekscompetenties}
+\author{Pieter Belmans}
+
+\begin{document}
+\maketitle
+
+\section{Fouriertransformaties}
+In de slides wordt er gebruik gemaakt van fouriertransformaties, zonder deze al te grondig te defini\"eren. Het kan dus interessant zijn om hier verder op te bouwen.
+\begin{quote}
+  Wat is de geschiedenis van de fouriertransformatie?
+\end{quote}
+\begin{quote}
+  Welke complexe analyse is er nodig om fouriertransformaties te begrijpen?
+\end{quote}
+\begin{quote}
+  Wat is een fouriertransformatie? Wat is een discrete fouriertransformatie? Welke gebruiken we in de analyse van geluid?
+\end{quote}
+\begin{quote}
+  Hoe berekenen we een fouriertransformatie? Hoe wordt een fouriertransformatie in het echt berekend? Wat is FFT?
+\end{quote}
+\begin{quote}
+  Wat zijn nog toepassingen van fouriertransformaties? Denk aan beeldanalyse, patroonherkenning, \dots
+\end{quote}
+
+
+\section{Vergelijking gelijkzwevende en reine stemming}
+In de slides wordt er hier kort aandacht aan besteed. Essentieel hierbij is het rekenen met logaritmes (in grondtal 2). Mogelijke vragen die gesteld kunnen worden zijn:
+\begin{quote}
+  Wat zijn de verschillen voor de andere intervallen?
+\end{quote}
+\begin{quote}
+  Wat gebeurt er bij een verdeling in meer of minder dan 12 delen?
+\end{quote}
+De vergelijkende studie die wordt gesuggereerd kan zeer goed dienen om vertrouwd te geraken met wiskundige software:
+\begin{quote}
+  Hoe kunnen we de verschillen visueel maken?
+\end{quote}
+\begin{quote}
+  Hoe kunnen we de verschillen kwantificeren?
+\end{quote}
+\begin{quote}
+  Kunnen we de verschillen hoorbaar maken?
+\end{quote}
+Interessant bronmateriaal is te vinden op \url{http://ppexpressivo.co.uk}.
+
+
+\section{Vergelijking van historische stemmingen}
+Verdergaand op de vorige onderzoeksvragen kunnen ook andere stemmingen onderzocht worden. Telkens dienen de volgende vragen beantwoord te worden:
+\begin{quote}
+  Hoe wordt deze stemming opgebouwd?
+\end{quote}
+\begin{quote}
+  Waarom wordt deze constructie gebruikt?
+\end{quote}
+\begin{quote}
+  Hoe verhoudt deze stemming zich tot de reine en de gelijkzwevende stemming?
+\end{quote}
+Centraal in de antwoorden op deze vragen staan volgende vragen:
+\begin{quote}
+  Wat zijn komma's?
+\end{quote}
+\begin{quote}
+  Wat is het wolfsinterval?
+\end{quote}
+Telkens kan bekeken worden hoe een bepaalde stemming omgaat met deze problemen.
+
+Interessante stemmingen (op basis van historische of wiskundig belang) zijn:
+\begin{enumerate}
+  \item pythagorische stemming
+  \item middentoonsstemmingen (\emph{meantone tuning})
+  \item welgetemperde stemmingen (\emph{well-tempered tuning})
+\end{enumerate}
+
+Wederom is een goed startpunt voor bronnen \url{http://ppexpressivo.co.uk}.
+
+
+\section{\emph{Musica universalis}}
+Deze suggestie voor onderzoekscompetenties is enkel van toepassing op klasgroepen die Latijn volgen. De wiskundige inhoud is hier beperkter, het betreft eerder historisch onderzoek.
+
+In de slides wordt volgend tekstfragment vermeld:
+\begin{quote}
+  Sed Pythagoras interdum et musica ratione appellat quantum absit a terra luna, ab ea ad Mercurium dimidium spatii et ab eo ad Veneris, a quo ad solem sescuplum, a sole ad Martem tonum [id est quantum ad lunam a terra], ab eo ad Iovem dimidium et ab eo ad Saturni, et inde sescuplum ad signiferum; ita septem tonis effici quam \greektext di`a paswn 'armon'ian \latintext hoc est universitatem concentus; in ea Saturnum Dorio moveri phthongo, Iovem Phrygio et in reliquis similia, iucunda magis quam necessaria subtilitate.
+\end{quote}
+\begin{flushright}
+  Plinius de oudere, Naturalis Historia, 77--79 n.C.
+\end{flushright}
+Een eerste stap is dus
+\begin{quote}
+  Vertaal en interpreteer dit fragment.
+\end{quote}
+Daarna zijn er meerdere zaken die onderzocht kunnen worden.
+\begin{quote}
+  Wat leert dit fragment (aangevuld met ander bronmateriaal ons) over de wereldvisie van Pythagoras?
+\end{quote}
+\begin{quote}
+  Wat zijn nog manifestaties van dit wereldbeeld? (Denk aan: Kepler, Plato, \dots)
+\end{quote}
+\begin{quote}
+  Hoe is dit wereldbeeld ge\"evolueerd tot het huidige wereldbeeld?
+\end{quote}
+\begin{quote}
+  Wat is numerologie?
+\end{quote}
+
+\end{document}
