@@ -15,7 +15,7 @@
 
 \newcommand\frequencydiagram[5]{
   % TODO change number of samples
-  \begin{tikzpicture}[scale = 0.85, domain = 0:10, samples = 10]
+  \begin{tikzpicture}[scale = 0.85, domain = 0:10, samples = 500]
     \draw[very thin] (-0.1,-2.1) grid (10.1,2.1);
     \draw[thick, ->] (-0.2,0) -- (10.2,0);
 
@@ -48,7 +48,7 @@
 \title{Wisku$\mathbb{N}$de in-$\mathbb{Z}$icht}
 \subtitle{Wiskunde in muziek}
 \author{Pieter Belmans (\texttt{pieter.belmans@uantwerpen.be}) \\ Matthias Roels (\texttt{matthias.roels@uantwerpen.be})}
-\date{9 januari 2014}
+\date{9 of 14 januari 2014}
 
 \begin{document}
 \begin{frame}
@@ -717,7 +717,7 @@
 
   \begin{center}
     \begin{tikzpicture}
-      \begin{axis}[width = \textwidth, height = .9\textheight]
+      \begin{axis}[width = \textwidth, height = .9\textheight, ytick=\empty, xlabel = {aantal noten}, ylabel = {cumulatieve fout}, xtick pos = left]
         \addplot[uablue, mark = *] table {error.dat};
       \end{axis}
     \end{tikzpicture}
@@ -784,15 +784,15 @@
   \begin{equation}
     1200\cdot\log_2\left( \frac{f_2}{f_1} \right)=1200\cdot\left( \log_2(f_2)-\log_2(f_1) \right)
   \end{equation}
-  het aantal \alert{cents} van $f_1$ naar $f_2$.
+  het aantal \alert{cent} van $f_1$ naar $f_2$.
   \pause
   De toonladder wordt dus
   \begin{center}
     \begin{tikzpicture}
-      \draw (0,0) circle (.1pt) node [above] {\small 0 cents};
-      \draw (5/2,0) circle (.1pt) node [above, xshift = -5pt] {\small 500 cents};
-      \draw (7/2,0) circle (.1pt) node [above, xshift = 15pt] {\small 700 cents};
-      \draw (12/2,0) circle (.1pt) node [above] {\small 1200 cents};
+      \draw (0,0) circle (.1pt) node [above] {\small 0 cent};
+      \draw (5/2,0) circle (.1pt) node [above, xshift = -5pt] {\small 500 cent};
+      \draw (7/2,0) circle (.1pt) node [above, xshift = 15pt] {\small 700 cent};
+      \draw (12/2,0) circle (.1pt) node [above] {\small 1200 cent};
       \foreach \k in {0,...,12} \draw [fill] ({\k/2},0) circle (.5pt);
       \foreach \k in {0,1} \draw [fill] ({12*\k/2},0) circle (1pt) node [below] {do};
       \foreach \k in {0} \draw [fill, uared] ({(12*\k+7)/2},0) circle (1pt) node [below] {sol};
@@ -823,15 +823,37 @@
   \begin{description}
     \item[kwint] $3:2$ vs.\ $2^{7/12}$ \\
       \pause= $1.5$ vs.\ $1.4983\dotso$ \\
-      \pause= $701.955\dotso$ cents vs.\ $700$ cents
+      \pause= $701.955\dotso$ cent vs.\ $700$ cent
     \item[terts] $5:4$ vs.\ $2^{4/12}$ \\
       \pause= $1.25$ vs.\ $1.2599\dotso$ \\
       \pause= $386.313$\dotso cent vs.\ $400$ cent
   \end{description}
   \begin{block}{Vuistregel}
-    Goede muzikanten horen het wanneer een noot meer dan 5 cent afwijkt.
+    Goede muzikanten horen een verschil vanaf 5 cent.
   \end{block}
   Wanneer twee noten tegelijkertijd gespeeld worden en er zweving kan worden vastgesteld is het natuurlijk gemakkelijker.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hoeveel noten hebben we nodig?}
+
+  \begin{center}
+    \begin{tikzpicture}
+      \foreach \t/\n in {1/1, 9/8, 5/4, 4/3, 3/2, 5/3, 15/8, 2/1} {
+        \draw (2, {5*ln(\t/\n)/ln(2)}) --++ (8, 0);
+      };
+      \draw[thick] (2, {5*ln(3/2)/ln(2)}) --++ (8, 0);
+      \draw[thick] (2, {5*ln(1/1)/ln(2)}) --++ (8, 0);
+      \draw[thick] (2, {5*ln(2/1)/ln(2)}) --++ (8, 0);
+  
+      \foreach \k in {5,...,19} {
+        \draw (\k/2,-.5) node {\k};
+        \foreach \m in {0,...,\k} {
+          \draw[fill] (\k/2, 5*\m/\k) circle (1pt);
+        };
+      };
+    \end{tikzpicture}
+  \end{center}
 \end{frame}
 
 
@@ -864,7 +886,7 @@
   \begin{center}
     \begin{tabular}[h]{cccccccc}
       do & re & mi & fa & sol & la & si \\\midrule
-      131Hz & 147Hz & 165Hz & 175Hz & 196Hz & 220Hz & 247Hz
+      $\SI{131}{\hertz}$ & $\SI{147}{\hertz}$ & $\SI{165}{\hertz}$ & $\SI{175}{\hertz}$ & $\SI{196}{\hertz}$ & $\SI{220}{\hertz}$ & $\SI{247}{\hertz}$
     \end{tabular}
   \end{center}
 \end{frame}
@@ -896,8 +918,7 @@
 \begin{frame}
   \frametitle{Wat is er aan de hand?}
 
-  We analyseren het geluid
-  % TODO
+  \includegraphics[width=\textwidth]{images/endless-once.png}
 \end{frame}
 
 \begin{frame}
@@ -913,10 +934,9 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Herhaalde geluidsanalyse}
+  \frametitle{Paradox van Shepard}
 
-  We analyseren meerdere kopies van het fragment
-  % TODO
+  \includegraphics[width=\textwidth]{images/endless-copies.png}
 \end{frame}
 
 \begin{frame}
@@ -924,12 +944,14 @@
 
   \begin{enumerate}
     \item we horen de overgang niet, maar \alert{zien} hem wel
-    \item exponenti\"eel stijgend
+    \item exponentieel stijgend
   \end{enumerate}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Paradox van Shepard}
+  \pause
+  \begin{block}{Paradox}
+    We kunnen ons gehoor bedotten.
+  \end{block}
+  \pause
+  Toepassing: basfrequenties op een klein membraan.
 \end{frame}
 
 \begin{frame}
@@ -947,12 +969,12 @@
   \includegraphics[width=\textwidth]{images/glissando-spectrum.png}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Een oneindig versnellende beat}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Paradox van Risset}
-\end{frame}
+%\begin{frame}
+%  \frametitle{Een oneindig versnellende beat}
+%\end{frame}
+%
+%\begin{frame}
+%  \frametitle{Paradox van Risset}
+%\end{frame}
 \end{document}
 

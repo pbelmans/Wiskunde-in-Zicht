@@ -10,7 +10,7 @@
 \score {
   \relative a {
     \time 12/4
-    c cis d dis e f fis g gis a ais b
+    \stemUp c cis d dis e f fis g gis a ais b
   } 
 
   \layout { 
