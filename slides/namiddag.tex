@@ -56,7 +56,19 @@
   \titlepage
 \end{frame}
 
-\section{Inleiding}
+\begin{frame}
+  \frametitle{Voor we beginnen}
+
+  \begin{enumerate}
+    \item Audacity downloaden: \\
+      \url{http://audacity.sourceforge.net/download/windows}, het zipbestand (!)
+
+    \item samples downloaden \\
+      \url{http://win.ua.ac.be/~pbelmans/wiskunde-in-zicht/}, \texttt{samples.zip} en dan uitpakken
+  \end{enumerate}
+\end{frame}
+
+\section{Fourierreeksen}
 
 \begin{frame}
 \frametitle{Wat is geluid?}
@@ -64,7 +76,7 @@
 \item Geluid is een periodisch signaal (een ``golf'') 
 \item Wiskundig: een functie die afhangt van de tijd zodat $$f(t+P)=f(t),$$ met $P$ de periode.
 \end{itemize}
-\begin{alertblock}{Vraag:}
+\begin{alertblock}{Vraag}
 Hoe beschrijft men deze functies? 
 \end{alertblock}
 \end{frame}
@@ -98,10 +110,10 @@ Kunnen we deze gebruiken om complexere signalen te beschrijven?
 \begin{center}
 \begin{tikzpicture}[scale=1.5]
     % Draw axes
-    \draw [>=stealth,<->,thick] (0,2.5) node (yaxis) [above] {$y$}
+    \draw [>=stealth,<->,thick] (0,1.5) node (yaxis) [above] {$y$}
         |- (3,0) node (xaxis) [right] {$x$};
     % Draw two intersecting lines
-    \draw[uared!80, ultra thick, >=stealth,->] (0,0) coordinate (a_1) -- (2,1.8) node[midway, left]{$\vec{v}$} coordinate (c);
+    \draw[uared!80, ultra thick, >=stealth,->] (0,0) coordinate (a_1) -- (2,1.2) node[midway, left]{$\vec{v}$} coordinate (c);
     % Draw lines indicating intersection with y and x axis. Here we use
     % the perpendicular coordinate system
     \draw[dashed] (yaxis |- c) node[left] {$b$}
