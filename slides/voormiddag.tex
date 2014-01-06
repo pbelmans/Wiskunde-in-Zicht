@@ -15,7 +15,7 @@
 
 \newcommand\frequencydiagram[5]{
   % TODO change number of samples
-  \begin{tikzpicture}[scale = 0.85, domain = 0:10, samples = 10]
+  \begin{tikzpicture}[scale = 0.85, domain = 0:10, samples = 500]
     \draw[very thin] (-0.1,-2.1) grid (10.1,2.1);
     \draw[thick, ->] (-0.2,0) -- (10.2,0);
 
@@ -48,15 +48,11 @@
 \title{Wisku$\mathbb{N}$de in-$\mathbb{Z}$icht}
 \subtitle{Wiskunde in muziek}
 \author{Pieter Belmans (\texttt{pieter.belmans@uantwerpen.be}) \\ Matthias Roels (\texttt{matthias.roels@uantwerpen.be})}
-\date{9 januari 2014}
+\date{9 of 14 januari 2014}
 
 \begin{document}
 \begin{frame}
   \titlepage
-\end{frame}
-
-\begin{frame}
-  \frametitle{Wie zijn wij?}
 \end{frame}
 
 \begin{frame}
@@ -112,6 +108,13 @@
     \item Hoe kunnen we geluid analyseren?
     \item Hoe kunnen we onze analyse interpreteren?
   \end{enumerate}
+  \pause
+  We willen dus
+  \begin{enumerate}
+    \item de bouwstenen van geluid kennen;
+    \item weten hoe we deze bouwstenen kunnen combineren;
+    \item gegeven een geluid de bouwstenen waar het uit opgebouwd is kennen.
+  \end{enumerate}
 \end{frame}
 
 \begin{frame}
@@ -123,7 +126,7 @@
 
   \pause
 
-  Als we een periodiek signaal geven, met een geheel veelvoud van de frequentie waarmee het langsheen het touw reist, krijgen we een staande golf.
+  Als we een periodiek signaal geven, met een geheel veelvoud van de frequentie waarmee het langsheen het touw reist, krijgen we een \alert{staande golf}.
 \end{frame}
 
 \begin{frame}
@@ -168,11 +171,26 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Het menselijk gehoor}
+
+  Wij zijn ruwweg in staat om geluid tussen $\SI{20}{\hertz}$ en $\SI{20}{\kilo\hertz}$ te horen.
+  \pause
+  \begin{enumerate}
+    \item menselijke stem: $85$ tot $\SI{180}{\hertz}$ voor mannen, $165$ tot $\SI{255}{\hertz}$ voor vrouwen;
+    \item viool $196$ tot $\pm\SI{4.5}{\kilo\hertz}$;
+    \item gitaar: $83$ tot $\SI{1000}{\hertz}$;
+    \item piano: $27$ tot $\SI{4.2}{\kilo\hertz}$.
+  \end{enumerate}
+  \pause
+  Dit is de frequentie van de \alert{grondtoon}. Stem of muziek is \emph{veel meer dan dit}! Maar voor onze perceptie van ``toonhoogte'' is deze frequentie wel essentieel.
+\end{frame}
+
+\begin{frame}
   \frametitle{Boventonen in snaren}
 
-  Als we aan een snaar trekken gaat die trillen:
+  Als we aan een snaar trekken gaat die in het wilde weg trillen, om vervolgens te gaan trillen met:
   \begin{enumerate}
-    \item met de frequentie van de grondtoon;
+    \item met de frequentie van de grondtoon,
     \item met de frequentie van de boventonen
   \end{enumerate}
   want deze versterken zich door het fenomeen van de staande golf, terwijl de andere frequenties grotendeels verdwijnen.
@@ -336,19 +354,9 @@
 \begin{frame}
   \frametitle{Zweving}
 
-  Hoe klinkt dit nu?
-
-  \begin{block}{\twonotes\ audiofragment}
-    %TODO we need more samples here!
-  \end{block}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Zweving}
-
   \begin{block}{\twonotes\ audiofragmenten}
     \texttt{samples/440-880-878.mp3} \\
-    % TODO some other real sound sample showing beating
+    experiment
   \end{block}
 
   \pause
@@ -385,13 +393,13 @@
   \frametitle{De kwint}
 
   De \alert{eerste boventoon} ``klinkt hetzelfde'', de verdubbeling in frequentie levert geen echt verschil op, we noemen dit een \alert{octaaf}.
-
   \pause
-
   Om hem te spelen op een snaar moeten we de snaarlengte \emph{halveren}.
+  \begin{block}{Experiment}
+    halveer de snaarlengte
+  \end{block}
 
   \pause
-  \vspace{1em}
 
   De \alert{tweede boventoon} (dus 3 maal de grondfrequentie) klinkt w\'el anders!
 
@@ -399,6 +407,11 @@
     \item De snaar \emph{in drie delen} levert deze frequentie als grondtoon.
     \item \pause De snaar dan weer in lengte verdubbelen levert een mooie toon die niet te ver van de grondtoon ligt: hij is dus $3/2$ keer de grondfrequentie.
   \end{enumerate}
+  \begin{block}{Experiment}
+    een derde van de snaarlengte \\
+    twee derde van de snaarlengte
+  \end{block}
+  \pause
   Het resultaat noemen we een \alert{kwint}.
 \end{frame}
 
@@ -435,6 +448,8 @@
   \begin{center}
     \frequencydiagram{22}{1}{1.5454}{22}{34}
   \end{center}
+  \pause
+  We zien \alert{zweving} optreden.
 \end{frame}
 
 \begin{frame}
@@ -446,6 +461,12 @@
   \vspace{1em}
 
   De \alert{vijfde boventoon} is w\'el nieuw. We hebben $5/4$ keer de grondfrequentie.
+
+  \begin{block}{Experiment}
+    (grote) tertsen
+  \end{block}
+  \pause
+  Merk op, de fretten van een gitaar staan steeds dichter bij elkaar.
 \end{frame}
 
 \begin{frame}
@@ -564,7 +585,7 @@
   We zullen kwinten stapelen:
   \begin{enumerate}
     \item elke stap apart klinkt mooi samen
-    \item het houdt verband met de tertsen: 5e versus 3e boventoon
+    \item het houdt verband met de tertsen: 5e versus 3e (= 6e) boventoon: na 4 kwinten (= 30e boventoon) hebben we een veelvoud van de 5e boventoon bereikt
   \end{enumerate}
 \end{frame}
 
@@ -575,7 +596,7 @@
   \begin{enumerate}
     \item 7 octaven erboven: opnieuw een do
       \pause
-    \item 12 kwinten erboven: \\
+    \item 12 kwinten erboven: \alert{kwintencirkel} \\
       do sol re la mi si fa\# do\# sol\# re\# la\# mi\# si\#
 
       \includegraphics{scores/circle-cropped}
@@ -604,7 +625,7 @@
     \texttt{samples/7-12-400Hz.mp3}
   \end{block}
   \pause
-  We willen si\# = do zodat we slechts 12 noten moeten gebruiken in onze muziek.
+  We willen (?) si\# = do zodat we slechts 12 noten moeten gebruiken in onze muziek.
 
   \begin{alertblock}{Vraag}
     Is dit de enige mogelijke keuze?
@@ -663,7 +684,7 @@
     \begin{enumerate}
       \item 4e eeuw voor Christus: Aristoxenus
       \item 1584: Vincenzo Galilei (vader van)
-      \item 1605: Simon Stevin (Belgisch wiskundige!) beschrijft voor het eerst de huidige stemming
+      \item 1605: Simon Stevin (Belgisch wiskundige!) beschrijft voor het eerst de huidige stemming, \emph{Van de Spiegeling der singconst}
       \item \ldots
     \end{enumerate}
   \end{block}
@@ -696,7 +717,7 @@
 
   \begin{center}
     \begin{tikzpicture}
-      \begin{axis}[width = \textwidth, height = .9\textheight]
+      \begin{axis}[width = \textwidth, height = .9\textheight, ytick=\empty, xlabel = {aantal noten}, ylabel = {cumulatieve fout}, xtick pos = left]
         \addplot[uablue, mark = *] table {error.dat};
       \end{axis}
     \end{tikzpicture}
@@ -716,6 +737,125 @@
     \end{enumerate}
   \end{block}
 \end{frame}
+
+
+\section{Rekenen met toonhoogtes}
+
+\begin{frame}
+  \frametitle{Frequenties zijn onhandig}
+
+  Het rekenen met frequenties is een \alert{absolute} manier van werken. \pause De problemen:
+  \begin{enumerate}
+    \item afhankelijk van de gekozen basisfrequentie (tegenwoordig $\SI{440}{\hertz}$);
+    \item afhankelijk van de gekozen octaaf;
+    \item onhandig rekenen: we werken met een \alert{exponenti\"ele schaal}, terwijl het aantal noten wel constant blijft
+  \end{enumerate}
+  \begin{center}
+    \begin{tikzpicture}
+      \foreach \k in {0,...,36} \draw [fill] ({exp(1+\k/12)/3},0) circle (.5pt);
+      \foreach \k in {0,1,2,3} \draw [fill] ({exp(1+\k)/3},0) circle (1pt) node [below] {do};
+      \foreach \k in {0,1,2} \draw [fill, uared] ({exp(1+\k+5/12)/3},0) circle (1pt) node [below] {fa};
+      \foreach \k in {0,1,2} \draw [fill, uared] ({exp(1+\k+7/12)/3},0) circle (1pt) node [below] {sol};
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Het alternatief}
+  
+  Daarom willen we een \alert{relatieve} manier van werken!
+  \begin{enumerate}
+    \item onafhankelijk van octaaf en basisfrequentie;
+    \item een \alert{lineaire schaal}
+  \end{enumerate}
+  \begin{center}
+    \begin{tikzpicture}
+      \foreach \k in {0,...,36} \draw [fill] ({\k/6},0) circle (.5pt);
+      \foreach \k in {0,1,2,3} \draw [fill] ({12*\k/6},0) circle (1pt) node [below] {do};
+      \foreach \k in {0,1,2} \draw [fill, uared] ({(12*\k+7)/6},0) circle (1pt) node [below] {sol};
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cents}
+
+  We hebben een octaaf in 12 gelijke delen (exponentieel gezien) opgedeeld. Daarom: stel $f_1$ en~$f_2$ de frequenties van twee noten, dan is
+  \begin{equation}
+    1200\cdot\log_2\left( \frac{f_2}{f_1} \right)=1200\cdot\left( \log_2(f_2)-\log_2(f_1) \right)
+  \end{equation}
+  het aantal \alert{cent} van $f_1$ naar $f_2$.
+  \pause
+  De toonladder wordt dus
+  \begin{center}
+    \begin{tikzpicture}
+      \draw (0,0) circle (.1pt) node [above] {\small 0 cent};
+      \draw (5/2,0) circle (.1pt) node [above, xshift = -5pt] {\small 500 cent};
+      \draw (7/2,0) circle (.1pt) node [above, xshift = 15pt] {\small 700 cent};
+      \draw (12/2,0) circle (.1pt) node [above] {\small 1200 cent};
+      \foreach \k in {0,...,12} \draw [fill] ({\k/2},0) circle (.5pt);
+      \foreach \k in {0,1} \draw [fill] ({12*\k/2},0) circle (1pt) node [below] {do};
+      \foreach \k in {0} \draw [fill, uared] ({(12*\k+7)/2},0) circle (1pt) node [below] {sol};
+      \foreach \k in {0} \draw [fill, uared] ({(12*\k+5)/2},0) circle (1pt) node [below] {fa};
+    \end{tikzpicture}
+  \end{center}
+  \pause
+  in plaats van
+  \begin{center}
+    \begin{tikzpicture}
+      \draw ({exp(1+0/12)*1.5},0) circle (.1pt) node [above] {\small $\SI{130.81}{\hertz}$};
+      \draw ({exp(1+5/12)*1.5},0) circle (.1pt) node [above, xshift = -10pt] {\small $\SI{174.61}{\hertz}$};
+      \draw ({exp(1+7/12)*1.5},0) circle (.1pt) node [above, xshift = 10pt] {\small $\SI{196}{\hertz}$};
+      \draw ({exp(1+12/12)*1.5},0) circle (.1pt) node [above] {\small $\SI{261.63}{\hertz}$};
+      \foreach \k in {0,...,12} \draw [fill] ({exp(1+\k/12)*1.5},0) circle (.5pt);
+      \foreach \k in {0,1} \draw [fill] ({exp(1+\k)*1.5},0) circle (1pt) node [below] {do};
+      \foreach \k in {0} \draw [fill, uared] ({exp(1+\k+5/12)*1.5},0) circle (1pt) node [below] {fa};
+      \foreach \k in {0} \draw [fill, uared] ({exp(1+\k+7/12)*1.5},0) circle (1pt) node [below] {sol};
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Gelijkzwevende vs.\ reine stemming}
+
+  Hoe verhoudt deze gelijkzwevende stemming zich nu tot de ``natuurlijke'' of reine stemming?
+  \pause
+  \begin{description}
+    \item[kwint] $3:2$ vs.\ $2^{7/12}$ \\
+      \pause= $1.5$ vs.\ $1.4983\dotso$ \\
+      \pause= $701.955\dotso$ cent vs.\ $700$ cent
+    \item[terts] $5:4$ vs.\ $2^{4/12}$ \\
+      \pause= $1.25$ vs.\ $1.2599\dotso$ \\
+      \pause= $386.313$\dotso cent vs.\ $400$ cent
+  \end{description}
+  \begin{block}{Vuistregel}
+    Goede muzikanten horen een verschil vanaf 5 cent.
+  \end{block}
+  Wanneer twee noten tegelijkertijd gespeeld worden en er zweving kan worden vastgesteld is het natuurlijk gemakkelijker.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hoeveel noten hebben we nodig?}
+
+  \begin{center}
+    \begin{tikzpicture}
+      \foreach \t/\n in {1/1, 9/8, 5/4, 4/3, 3/2, 5/3, 15/8, 2/1} {
+        \draw (2, {5*ln(\t/\n)/ln(2)}) --++ (8, 0);
+      };
+      \draw[thick] (2, {5*ln(3/2)/ln(2)}) --++ (8, 0);
+      \draw[thick] (2, {5*ln(1/1)/ln(2)}) --++ (8, 0);
+      \draw[thick] (2, {5*ln(2/1)/ln(2)}) --++ (8, 0);
+  
+      \foreach \k in {5,...,19} {
+        \draw (\k/2,-.5) node {\k};
+        \foreach \m in {0,...,\k} {
+          \draw[fill] (\k/2, 5*\m/\k) circle (1pt);
+        };
+      };
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
 
 \section{Hoe kan geluid ons bedotten?}
 % TODO: end the previous section with a remark hinting at the crappy way we experience sound, ties it in with this last section *and* afternoon
@@ -746,7 +886,7 @@
   \begin{center}
     \begin{tabular}[h]{cccccccc}
       do & re & mi & fa & sol & la & si \\\midrule
-      131Hz & 147Hz & 165Hz & 175Hz & 196Hz & 220Hz & 247Hz
+      $\SI{131}{\hertz}$ & $\SI{147}{\hertz}$ & $\SI{165}{\hertz}$ & $\SI{175}{\hertz}$ & $\SI{196}{\hertz}$ & $\SI{220}{\hertz}$ & $\SI{247}{\hertz}$
     \end{tabular}
   \end{center}
 \end{frame}
@@ -778,8 +918,7 @@
 \begin{frame}
   \frametitle{Wat is er aan de hand?}
 
-  We analyseren het geluid
-  % TODO
+  \includegraphics[width=\textwidth]{images/endless-once.png}
 \end{frame}
 
 \begin{frame}
@@ -795,10 +934,9 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Herhaalde geluidsanalyse}
+  \frametitle{Paradox van Shepard}
 
-  We analyseren meerdere kopies van het fragment
-  % TODO
+  \includegraphics[width=\textwidth]{images/endless-copies.png}
 \end{frame}
 
 \begin{frame}
@@ -806,12 +944,14 @@
 
   \begin{enumerate}
     \item we horen de overgang niet, maar \alert{zien} hem wel
-    \item exponenti\"eel stijgend
+    \item exponentieel stijgend
   \end{enumerate}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Paradox van Shepard}
+  \pause
+  \begin{block}{Paradox}
+    We kunnen ons gehoor bedotten.
+  \end{block}
+  \pause
+  Toepassing: basfrequenties op een klein membraan.
 \end{frame}
 
 \begin{frame}
@@ -829,12 +969,12 @@
   \includegraphics[width=\textwidth]{images/glissando-spectrum.png}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Een oneindig versnellende beat}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Paradox van Risset}
-\end{frame}
+%\begin{frame}
+%  \frametitle{Een oneindig versnellende beat}
+%\end{frame}
+%
+%\begin{frame}
+%  \frametitle{Paradox van Risset}
+%\end{frame}
 \end{document}
 

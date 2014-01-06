@@ -10,7 +10,7 @@
 \score {
   \relative a {
     \time 7/4
-    c d e f g a b
+    \stemUp c d e f g a b
   } 
 
   \layout { 
