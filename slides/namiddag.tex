@@ -74,7 +74,11 @@
 \frametitle{Wat is geluid?}
 \begin{itemize}
 \item Geluid is een periodisch signaal (een ``golf'') 
-\item Wiskundig: een functie die afhangt van de tijd zodat $$f(t+P)=f(t),$$ met $P$ de periode.
+\item Wiskundig: een functie die afhangt van de tijd zodat 
+\begin{equation*}
+f(t+P)=f(t),
+\end{equation*}
+met $P$ de periode.
 \end{itemize}
 \begin{alertblock}{Vraag}
 Hoe beschrijft men deze functies? 
@@ -84,7 +88,11 @@ Hoe beschrijft men deze functies?
 \begin{frame}
 \frametitle{Wat zijn de meest eenvoudige signalen?}
 \begin{itemize}
-\item Dit zijn de zgn.\ goniometrische functies $$f(t)=A\cos (\omega t) \quad \text{en} \quad g(t)=B\sin (\omega t),$$ met $A$ en $B$ de amplitude en $\omega$ de frequentie. 
+\item Dit zijn de zgn.\ goniometrische functies 
+\begin{equation*}
+f(t)=A\cos (\omega t) \quad \text{en} \quad g(t)=B\sin (\omega t),
+\end{equation*} 
+met $A$ en $B$ de amplitude en $\omega$ de frequentie. 
 \item Amplitude: $\frac{1}{2}$(het verschil tussen piek en dal)
 \item Frequentie: $($afstand tussen twee toppen van de golf$)^{-1}$
 \end{itemize}
@@ -129,7 +137,9 @@ Kunnen we deze gebruiken om complexere signalen te beschrijven?
 \frametitle{Fourierreeksen}
 \begin{itemize}
 \item periodische signalen ontbinden in (mogelijk oneindige) som van eenvoudige signalen 
-$$f(t)=\frac{A_0}{2}+\sum_{n=0}^{\infty}\brac{A_n \cos(\omega_n t)+B_n\sin(\omega_n t)}. $$
+\begin{equation*}
+f(t)=\frac{A_0}{2}+\sum_{n=0}^{\infty}\brac{A_n \cos(\omega_n t)+B_n\sin(\omega_n t)}. 
+\end{equation*}
 \item oneindige som mag niet oneindig geven. \\ \noindent 
 $\implies$ amplitudes $A_n$ en $B_n$ zullen kleiner en kleiner worden naarmate $n$ groter wordt. 
 \end{itemize}

@@ -38,15 +38,41 @@
 \newcommand\removethis{\stepcounter{todocounter}\todo[color=yellow!50]{\thetodocounter. Remove this?}}
 
 \title{Suggesties voor onderzoekscompetenties}
-\author{Pieter Belmans}
+\author{Pieter Belmans, Matthias Roels}
 
+\newtheorem{definition}{Definitie}
 \begin{document}
 \maketitle
 
 \section{Fouriertransformaties}
-In de slides wordt er gebruik gemaakt van fouriertransformaties, zonder deze al te grondig te defini\"eren. Het kan dus interessant zijn om hier verder op te bouwen.\addreference{Matthias: kan jij hier enige referenties voorzien? Jij bent vertrouwder met de literatuur.}
+In de slides wordt er gebruik gemaakt van Fourierreeksen en Fouriertransformaties, zonder deze al te grondig te defini\"eren. Het kan dus interessant zijn om hier verder op te bouwen.
 \begin{quote}
-  Wat is de geschiedenis van de fouriertransformatie?
+Fourierreeksen beter uitwerken: in dit deel is het de bedoeling dat de studenten Fourierreeksen nauwkeuriger gaan defini\"eren. Hierbij is volgende definitie nodig: 
+\begin{definition}
+De projectie van een periodische functie $f(t)$ op een basisgolf is gedefinieerd als 
+\begin{equation*}
+\langle \sin{(n t)},f(t) \rangle:=\int_{-\pi}^{\pi} \sin{(n t)}f(t)\mathrm{d}t,
+\end{equation*}
+en analoog voor $\cos{(n t)}$.
+\end{definition}
+De Fourierreeks van een periodische functie wordt dan gegeven door: 
+\begin{equation*}
+f(t)=\frac{A_0}{2}+\sum_{n=0}^{\infty}\left(A_n \cos{(n t)}+B_n\sin{(n t)}\right) \, 
+\end{equation*}
+met
+\begin{align*}
+A_0&=\int_{-\pi}^{\pi} f(t)\mathrm{d}t, \\
+A_n&=\int_{-\pi}^{\pi} f(t)\cos(n t)\mathrm{d}t, \\
+B_n&=\int_{-\pi}^{\pi} f(t)\sin(n t)\mathrm{d}t.
+\end{align*}
+Als voorbeeld kan de Fourierreeks van de zaagtandgolf of de blokgolf berekend worden. \\
+\noindent
+In computertoepassingen zal er nooit met de echte reeks gewerkt worden, maar met een eindig aantal termen. Om na te gaan of die eindige som van sinussen en cosinussen
+het periodische signaal goed benarderd is er nood aan een notie van \textit{een afstand tussen twee functies}. Dit kan ook eventueel onderzocht worden. De afstand die in de analyse vaak gebruikt wordt is de volgende:
+\begin{equation*}
+||f-s||:=\sqrt{\int_{-\pi}^{\pi} \Big(f(t)-s(t)\Big)^2\mathrm{d}t},
+\end{equation*}
+waarbij $s(t)$ het benaderde signaal is. 
 \end{quote}
 \begin{quote}
   Welke complexe analyse is er nodig om fouriertransformaties te begrijpen?
@@ -56,6 +82,9 @@ In de slides wordt er gebruik gemaakt van fouriertransformaties, zonder deze al 
 \end{quote}
 \begin{quote}
   Hoe berekenen we een fouriertransformatie? Hoe wordt een fouriertransformatie in het echt berekend? Wat is FFT?
+\end{quote}
+\begin{quote}
+ Analyse van spectra van andere instrumenten.
 \end{quote}
 \begin{quote}
   Wat zijn nog toepassingen van fouriertransformaties? Denk aan beeldanalyse, patroonherkenning, \dots
