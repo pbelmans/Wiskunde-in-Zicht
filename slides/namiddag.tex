@@ -59,9 +59,9 @@
 \section{Inleiding}
 
 \begin{frame}
-\frametitle{Wat is geluid}
+\frametitle{Wat is geluid?}
 \begin{itemize}
-\item Geluid is een periodisch signaal (een ``golf '') 
+\item Geluid is een periodisch signaal (een ``golf'') 
 \item Wiskundig: een functie die afhangt van de tijd zodat $$f(t+P)=f(t),$$ met $P$ de periode.
 \end{itemize}
 \begin{alertblock}{Vraag:}
@@ -72,7 +72,7 @@ Hoe beschrijft men deze functies?
 \begin{frame}
 \frametitle{Wat zijn de meest eenvoudige signalen?}
 \begin{itemize}
-\item Dit zijn de zgn. goniometrische functies $$f(t)=A\cos (\omega t) \quad \text{en} \quad g(t)=B\sin (\omega t),$$ met $A$ en $B$ de amplitude en $\omega$ de frequentie. 
+\item Dit zijn de zgn.\ goniometrische functies $$f(t)=A\cos (\omega t) \quad \text{en} \quad g(t)=B\sin (\omega t),$$ met $A$ en $B$ de amplitude en $\omega$ de frequentie. 
 \item Amplitude: $\frac{1}{2}$(het verschil tussen piek en dal)
 \item Frequentie: $($afstand tussen twee toppen van de golf$)^{-1}$
 \end{itemize}
@@ -84,7 +84,7 @@ Kunnen we deze gebruiken om complexere signalen te beschrijven?
 
 \begin{frame}
 \frametitle{Sinusgolf}
-\includegraphics[width=\textwidth]{Sin_wave.png}
+\includegraphics[width=\textwidth]{images/Sin_wave.png}
 \begin{block}{Audiofragment}
 \texttt{Sin\_wave.aup}
 \end{block}
@@ -95,6 +95,7 @@ Kunnen we deze gebruiken om complexere signalen te beschrijven?
 \begin{itemize}
 \item Een vector kan geschreven worden als $\vec{v}=a\vec{e}_x+b\vec{e}_y.$
 \end{itemize}
+\begin{center}
 \begin{tikzpicture}[scale=1.5]
     % Draw axes
     \draw [>=stealth,<->,thick] (0,2.5) node (yaxis) [above] {$y$}
@@ -106,8 +107,9 @@ Kunnen we deze gebruiken om complexere signalen te beschrijven?
     \draw[dashed] (yaxis |- c) node[left] {$b$}
         -| (xaxis -| c) node[below] {$a$};
 \end{tikzpicture}
+\end{center}
 \begin{itemize}
-\item We willen iets gelijkaardigs doen met signalen: deze schrijven als lineaire combinaties van ``basisfuncties.''
+\item We willen iets gelijkaardigs doen met signalen: deze schrijven als lineaire combinaties van ``basisfuncties''.
 \end{itemize}
 \end{frame}
 
@@ -132,7 +134,7 @@ $\implies$ amplitudes $A_n$ en $B_n$ zullen kleiner en kleiner worden naarmate $
       height = \textheight*.8,
       smooth,
       no markers,
-      samples = 20,
+      samples = 200,
       xtick = {0,3.1415,...,18.8495},
       xticklabels={$0$,$\pi$,$2\pi$,$3\pi$,$4\pi$,$5\pi$,$6\pi$},
       xlabel = {$t$},
@@ -162,11 +164,11 @@ $\implies$ amplitudes $A_n$ en $B_n$ zullen kleiner en kleiner worden naarmate $
 \draw[->,thick,black!70] (0,0,0) -- (0,6.5,0) node[below right] {Tijd};
 \draw[->,thick] (0,0,0) -- (0,0,2) node[above] {Amplitude};
 \foreach \y in {0.5,1.5,...,3.5}{
-\draw [cyan!50, domain=0:2*pi,samples=20,smooth] 
+\draw [cyan!50, domain=0:2*pi,samples=200,smooth] 
  plot (\y,\x, {sin(4*\y*\x r)/\y });
-\draw[blue, ultra thick] (\y,6.5,0) -- (\y,6.5,1/\y);
+\draw[uablue, ultra thick] (\y,6.5,0) -- (\y,6.5,1/\y);
 }
-\draw [uared, thick, domain=0:2*pi,samples=20,smooth] 
+\draw [uared, thick, domain=0:2*pi,samples=200,smooth] 
 plot (0,\x, {sin(4*0.5*\x r)/0.5 + sin(4*1.5*\x r)/1.5 + sin(4*2.5*\x r)/2.5 + sin(4*3.5*\x r)/3.5 + sin(4*4.5*\x r)/4.5 + sin(4*5.5*\x r)/5.5} );
 \end{tikzpicture}
 \end{frame}
@@ -185,7 +187,7 @@ Dit is slechts een benadering! Deze wordt beter en beter naarmate er meer termen
 
 \begin{frame}
 \frametitle{Blokgolf (4)}
-\includegraphics[width=\textwidth]{Square_wave.png}
+\includegraphics[width=\textwidth]{images/Square_wave.png}
 \begin{block}{Audiofragment:}
 \texttt{Square\_wave.aup} 
 \end{block} 
@@ -202,7 +204,7 @@ Dit is slechts een benadering! Deze wordt beter en beter naarmate er meer termen
       height = \textheight*.8,
       smooth,
       no markers,
-      samples = 20,
+      samples = 200,
       xtick = {0,3.1415,...,18.8495},
       xticklabels={$0$,$\pi$,$2\pi$,$3\pi$,$4\pi$,$5\pi$,$6\pi$},
       xlabel = {$t$},
@@ -237,13 +239,13 @@ Ook hier geldt: Benadering wordt beter en beter naarmate er meer termen worden t
 
 \begin{frame}
 \frametitle{Zaagtand golf (3)}
-\includegraphics[width=\textwidth]{Sawtooth_wave.png}
+\includegraphics[width=\textwidth]{images/Sawtooth_wave.png}
 \begin{block}{Audiofragment:}
 \texttt{Sawtooth\_wave.aup}
 \end{block}
 \end{frame}
 
-\section{Gitaar fragmenten}
+\section{Gitaarfragmenten}
 
 \begin{frame}
 \frametitle{Hoe ontstaat gitaargeluid?}
@@ -259,7 +261,7 @@ Ook hier geldt: Benadering wordt beter en beter naarmate er meer termen worden t
 \begin{itemize}
 \item Inputspanning van buis begrensd door minimum (z'n voeding) en maximum (op voorhand ingesteld: \textit{bias spanning}).
 \item Binnen deze grenzen: versterking lineair, d.w.z. elke frequentie in signaal wordt met zelfde factor versterkt.
-\item Levert Cleane gitaarklank. 
+\item Levert cleane gitaarklank. 
 \end{itemize}
 \begin{alertblock}{Vraag:}
 Wat gebeurt er wanneer de inputspanning de maximumspanning nadert?
@@ -267,10 +269,10 @@ Wat gebeurt er wanneer de inputspanning de maximumspanning nadert?
 \end{frame}
 
 \begin{frame}
-\frametitle{Versterking van gitaargeluid(2)}
+\frametitle{Versterking van gitaargeluid (2)}
 \begin{itemize}
 \item Versterking niet meer lineair: kleinere spanningen worden (relatief gezien) meer versterkt dan grotere.
-\item Toppen van golven met te grote amplitude worden afgerond: \textit{Overdrive} of \textit{Clipping}.
+\item Toppen van golven met te grote amplitude worden afgerond: \textit{overdrive} of \textit{clipping}.
 \item Boventonen even veelvoud van grondto(o)n(en): vollere en warmere klank!
 \item Distortion/hard clipping: Golftoppen worden afgekapt $\rightarrow$ vreemde componenten in spectrum
 \item Clipping levert typische rocksound.
@@ -278,21 +280,21 @@ Wat gebeurt er wanneer de inputspanning de maximumspanning nadert?
 \end{frame}
 
 \begin{frame}
-\frametitle{Versterking van gitaargeluid(3)}
-\includegraphics[width=\textwidth]{clipping.png}
+\frametitle{Versterking van gitaargeluid (3)}
+\includegraphics[width=\textwidth]{images/clipping.png}
 \end{frame}
 
 \begin{frame}
-\frametitle{\'e\'en enkele noot}
-\includegraphics[width=\textwidth]{A-flat.png}
+\frametitle{\'E\'en enkele noot}
+\includegraphics[width=\textwidth]{images/A-flat.png}
 \begin{block}{Audiofragment:}
 \texttt{A-flat-note.aup} 
 \end{block}
 \end{frame}
 
 \begin{frame}
-\frametitle{\'e\'en enkele noot(2)}
-\includegraphics[width=\textwidth]{A-flat-harmonic.png}
+\frametitle{\'E\'en enkele noot (2)}
+\includegraphics[width=\textwidth]{images/A-flat-harmonic.png}
 \begin{block}{Audiofragment:}
 \texttt{A-flat-harmonic.aup} 
 \end{block}
@@ -311,7 +313,7 @@ Wat gebeurt er wanneer de inputspanning de maximumspanning nadert?
 
 \begin{frame}
 \frametitle{C-noot}
-\includegraphics[width=\textwidth]{C-note.png}
+\includegraphics[width=\textwidth]{images/C-note.png}
 \begin{block}{Audiofragment:}
 \texttt{C-note.aup} 
 \end{block}
@@ -319,31 +321,31 @@ Wat gebeurt er wanneer de inputspanning de maximumspanning nadert?
 
 
 \begin{frame}
-\frametitle{C-Akkoord}
-\includegraphics[width=\textwidth]{C-powerchord.png}
+\frametitle{C-akkoord}
+\includegraphics[width=\textwidth]{images/C-powerchord.png}
 \begin{block}{Audiofragment:}
 \texttt{C-powerchord.aup}
 \end{block}
 \end{frame}
 
 \begin{frame}
-\frametitle{C-Akkoord (2)}
-\includegraphics[width=\textwidth]{C-powerchord-overdriven.png}
+\frametitle{C-akkoord (2)}
+\includegraphics[width=\textwidth]{images/C-powerchord-overdriven.png}
 \begin{block}{Audiofragment:}
-\texttt{C-powerchord-overdriven.aup}
+\texttt{C-powerchord-overdriven.aupimages/}
 \end{block}
 \end{frame}
 
 \begin{frame}
-\frametitle{C-Akkoord (3)}
-\includegraphics[width=\textwidth]{C-powerchord-heavily-distorted.png}
+\frametitle{C-akkoord (3)}
+\includegraphics[width=\textwidth]{images/C-powerchord-heavily-distorted.png}
 \begin{block}{Audiofragment:}
 \texttt{C-powerchord-heavily-distorted.aup} 
 \end{block}
 \end{frame}
 
 \begin{frame}
-\frametitle{Conclusie: Clipping}
+\frametitle{Conclusie: clipping}
 \begin{itemize}
 \item Clean: akkoordnoten duidelijk terug te vinden. 
 \item Effect van clipping duidelijk zichtbaar in spectra!
@@ -351,8 +353,8 @@ Wat gebeurt er wanneer de inputspanning de maximumspanning nadert?
 \end{frame}
 
 \begin{frame}
-\frametitle{C-Akkoord (4)}
-\includegraphics[width=\textwidth]{C-major-chord.png}
+\frametitle{C-akkoord (4)}
+\includegraphics[width=\textwidth]{images/C-major-chord.png}
 \begin{block}{Audiofragment:}
 \texttt{C-major-chord.aup} 
 \end{block}
