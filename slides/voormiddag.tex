@@ -1,4 +1,4 @@
-\documentclass[compress, darktitle, framenumber, totalframenumber]{beamer}
+\documentclass[compress, darktitle, framenumber, totalframenumber, handout]{beamer}
 \usepackage[greek, dutch]{babel}
 \usepackage{booktabs}
 \usepackage{manfnt}
@@ -113,7 +113,7 @@
   \begin{enumerate}
     \item de bouwstenen van geluid kennen;
     \item weten hoe we deze bouwstenen kunnen combineren;
-    \item gegeven een geluid de bouwstenen waar het uit opgebouwd is kennen.
+    \item van een specifiek geluid de bouwstenen bepalen.
   \end{enumerate}
 \end{frame}
 
@@ -158,7 +158,7 @@
   waarbij
   \begin{equation}
     \begin{aligned}
-      L&=\text{lengte} \\
+      L&=\text{lengte van de snaar} \\
       T&=\text{spanning op de snaar (= kracht)} \\
       \mu&=\text{massa per lengte}
     \end{aligned}
@@ -178,7 +178,7 @@
   \begin{enumerate}
     \item menselijke stem: $85$ tot $\SI{180}{\hertz}$ voor mannen, $165$ tot $\SI{255}{\hertz}$ voor vrouwen;
     \item viool $\SI{196}{\hertz}$ tot $\pm\SI{4.5}{\kilo\hertz}$;
-    \item gitaar: $\SI{83}{\hertz}$ tot $\SI{\pm 1000}{\hertz}$;
+    \item gitaar: $\SI{83}{\hertz}$ tot $\SI{\pm 1}{\kilo\hertz}$;
     \item piano: $\SI{27}{\hertz}$ tot $\SI{4.2}{\kilo\hertz}$.
   \end{enumerate}
   \pause
@@ -392,7 +392,7 @@
 \begin{frame}
   \frametitle{De kwint}
 
-  De \alert{eerste boventoon} ``klinkt hetzelfde'', de verdubbeling in frequentie levert geen echt verschil op, we noemen dit een \alert{octaaf}.
+  De \alert{tweede boventoon} ``klinkt hetzelfde'', de verdubbeling in frequentie levert geen echt verschil op, we noemen dit een \alert{octaaf}.
   \pause
   Om hem te spelen op een snaar moeten we de snaarlengte \emph{halveren}.
   \begin{block}{Experiment}
@@ -401,15 +401,14 @@
 
   \pause
 
-  De \alert{tweede boventoon} (dus 3 maal de grondfrequentie) klinkt w\'el anders!
+  De \alert{derde boventoon} (dus 3 maal de grondfrequentie) is w\'el anders!
 
   \begin{enumerate}
     \item De snaar \emph{in drie delen} levert deze frequentie als grondtoon.
-    \item \pause De snaar dan weer in lengte verdubbelen levert een mooie toon die niet te ver van de grondtoon ligt: hij is dus $3/2$ keer de grondfrequentie.
+    \item \pause De lengte verdubbelen geeft $3/2$ keer de grondfrequentie.
   \end{enumerate}
   \begin{block}{Experiment}
-    een derde van de snaarlengte \\
-    twee derde van de snaarlengte
+    1/3 en 2/3 van de snaarlengte
   \end{block}
   \pause
   Het resultaat noemen we een \alert{kwint}.
@@ -463,7 +462,12 @@
   De \alert{vijfde boventoon} is w\'el nieuw. We hebben $5/4$ keer de grondfrequentie.
 
   \begin{block}{Experiment}
-    (grote) tertsen
+    \begin{wrapfigure}{r}{.4\textwidth}
+      \vspace{-.5cm} % weird hack to get position right
+      \centering
+      \includegraphics{scores/thirds-cropped}
+    \end{wrapfigure}
+    (grote) tertsen door 4/5 van de snaarlengte te spelen
   \end{block}
   \pause
   Merk op, de fretten van een gitaar staan steeds dichter bij elkaar.
@@ -499,12 +503,17 @@
     \item tertsen.
   \end{enumerate}
   We kunnen deze stapelen, om zo nieuwe noten te vormen.
+  \pause
+  \begin{itemize}
+    \item \hyperlinkslidenext{\beamergotobutton{doe het historisch intermezzo}}
+    \item \hyperlink{tunings}{\beamerskipbutton{sla het historisch intermezzo over}}
+  \end{itemize}
 \end{frame}
 
 
 \section{Een historisch intermezzo}
 
-\begin{frame}
+\begin{frame}[label=history]
   \frametitle{Musica universalis}
 
   Pythagoras:
@@ -561,7 +570,7 @@
 
 \section{Wat is het probleem met stemmingen?}
 
-\begin{frame}
+\begin{frame}[label=tunings]
   \frametitle{Een stemming}
 
   We moeten dus toonhoogtes afspreken die we zullen gebruiken om muziek te maken. We weten dat
@@ -674,7 +683,7 @@
   \frametitle{Geschiedenis}
 
   De scenario's:
-  \begin{description}
+  \begin{description}[middeleeuwen]
     \item[Pythagoras] strak vasthouden aan de perfecte verhoudingen, goed in theorie, slecht in praktijk
     \item[middeleeuwen] variaties op Pythagoras: het ``wolfinterval'' dat ontstaat door de strikte toepassing van Pythagoras' theorie wordt uitgesmeerd over meerdere noten
     \item[hedendaags] we nemen gelijke stappen, de \alert{gelijkzwevende stemming}

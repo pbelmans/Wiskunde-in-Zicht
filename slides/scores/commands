@@ -14,5 +14,8 @@ pdfcrop circle.pdf circle-cropped.pdf
 lilypond fifths.ly
 pdfcrop fifths.pdf fifths-cropped.pdf
 
+lilypond thirds.ly
+pdfcrop thirds.pdf thirds-cropped.pdf
+
 lilypond major-chord.ly
 pdfcrop major-chord.pdf major-chord-cropped.pdf
