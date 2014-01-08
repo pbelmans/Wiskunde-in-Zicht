@@ -1,4 +1,4 @@
-\documentclass[compress, darktitle, framenumber]{beamer}
+\documentclass[compress, darktitle, framenumber, totalframenumber, handout]{beamer}
 \usepackage{pgfplots}
 \usepackage{tikz}
 \usepackage{xparse}
@@ -8,6 +8,7 @@
 \restylefloat{figure}
 \restylefloat{table}
 \usepackage[font=small,format=plain,labelfont=bf,up,textfont=it,up]{caption}
+\usepackage{siunitx}
 
 \usepackage[dutch]{babel}
 \usepackage{enumerate}
@@ -41,13 +42,11 @@
 \newcommand{\C}{\mathbb{C}} % the field of complex number
 \newcommand{\Z}{\mathbb{Z}} % the field of integers
 
-\AtBeginSection[]
-{
-  \begin{frame}<beamer>
-    \frametitle{Overzicht}
-    \tableofcontents[currentsection]
-  \end{frame}
-}
+
+\beamertemplatenavigationsymbolsempty
+
+\newtranslation[to=dutch]{Section}{Deel}
+\AtBeginSection{\frame{\sectionpage}}
 
 
 
@@ -390,6 +389,18 @@ Wat gebeurt er wanneer de inputspanning de maximumspanning nadert?
 \texttt{F-sharp-chord.aup} \\
 \texttt{F-sharp-chord-overdriven.aup} \\
 \end{block}
+\end{frame}
+
+\section{A Hard Day's Night}
+
+\begin{frame}
+  \frametitle{Analyse van het beginakkoord}
+
+  \begin{center}
+    \includegraphics[height=4cm]{images/beatles-500} \qquad \includegraphics[height=4cm]{images/beatles-1500}
+  \end{center}
+
+  lage re: $\SI{\pm 73}{\hertz}$, fa kruis: $\SI{\pm 92}{\hertz}$, etc.
 \end{frame}
 
 \end{document}
