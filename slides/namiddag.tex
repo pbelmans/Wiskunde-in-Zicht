@@ -1,6 +1,7 @@
-\documentclass[compress, darktitle, framenumber, totalframenumber, handout]{beamer}
+\documentclass[compress, darktitle, framenumber, totalframenumber]{beamer}
 \usepackage{pgfplots}
 \usepackage{tikz}
+\usetikzlibrary{arrows,matrix,positioning,shapes,fit,calc}
 \usepackage{xparse}
 \usepackage{graphicx}
 \usepackage{epsfig}
@@ -254,7 +255,7 @@ s(x)\approx\frac{2}{\pi}\sin{(t)}-\frac{1}{\pi}\sin{(2t)}+\frac{2}{3\pi}\sin{(3t
 \frac{1}{2\pi}\sin{(4t)}.
 \end{equation}
 \begin{block}{Opmerking:}
-Ook hier geldt: Benadering wordt beter en beter naarmate er meer termen worden toevoegen.
+Zaagtand (net zoals blokgolf) klinkt onnatuurlijk: het vergt oneindig veel energie om instantaan van pos. naar neg. om te flippen. 
 \end{block}
 \end{frame}
 
@@ -273,14 +274,13 @@ Ook hier geldt: Benadering wordt beter en beter naarmate er meer termen worden t
 \begin{itemize}
 \item Trilling van snaren wordt omgezet in wisselspanning door magnetische spoel: \textit{de pickups}. (Wet van Faraday-Lenz)
 \item Wisselspanning moet versterkt worden om via luidsprekers hoorbare klank op te leveren. 
-\item Meest courant: versterking via vacu\"umbuizen omwille van unieke klank.
 \end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{Versterking van gitaargeluid}
 \begin{itemize}
-\item Inputspanning van buis begrensd door minimum (z'n voeding) en maximum (op voorhand ingesteld: \textit{bias spanning}).
+\item Inputspanning van versterkers begrensd door minimum en maximum.
 \item Binnen deze grenzen: versterking lineair, d.w.z. elke frequentie in signaal wordt met zelfde factor versterkt.
 \item Levert cleane gitaarklank. 
 \end{itemize}
@@ -291,42 +291,64 @@ Wat gebeurt er wanneer de inputspanning de maximumspanning nadert?
 
 \begin{frame}
 \frametitle{Versterking van gitaargeluid (2)}
+\includegraphics[width=\textwidth]{images/clipping.png}
+\end{frame}
+
+\begin{frame}
+\frametitle{Versterking van gitaargeluid (3)}
 \begin{itemize}
 \item Versterking niet meer lineair: kleinere spanningen worden (relatief gezien) meer versterkt dan grotere.
-\item Toppen van golven met te grote amplitude worden afgerond: \textit{overdrive} of \textit{clipping}.
-\item Boventonen even veelvoud van grondto(o)n(en): vollere en warmere klank!
+\item Toppen van golven met te grote amplitude worden afgerond: \textit{overdrive} of \textit{clipping} met vollere en warmere klank tot gevolg. 
 \item Distortion/hard clipping: Golftoppen worden afgekapt $\rightarrow$ vreemde componenten in spectrum
 \item Clipping levert typische rocksound.
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{Versterking van gitaargeluid (3)}
-\includegraphics[width=\textwidth]{images/clipping.png}
+\frametitle{Een enkele noot (piano)}
+\begin{tikzpicture}
+\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=\textwidth]{images2/Piano-A-flat.png}};
+\draw[->,uared, thick, >=stealth] (3.8,4.2)node[left=-2pt]{G\#} -- (4.8,4);
+\draw[->,uared, thick, >=stealth] (7.5,4)node[right=-2pt]{D\#} -- (6.8,3.8);
+\draw[->,uared, thick, >=stealth] (8,3.2)node[right=-2pt]{C} -- (7.5,2.8);
+\end{tikzpicture}
+\begin{block}{Audiofragment:}
+\texttt{Piano-G-sharp.aup} 
+\end{block}
 \end{frame}
 
 \begin{frame}
-\frametitle{\'E\'en enkele noot}
-\includegraphics[width=\textwidth]{images/A-flat.png}
+\frametitle{Een enkele noot (gitaar)}
+\begin{tikzpicture}
+\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=\textwidth]{images2/A-flat.png}};
+\draw[->,uared, thick, >=stealth] (2.5,4)node[left=-2pt]{G\#} -- (3.5,3.8);
+\draw[->,uared, thick, >=stealth] (3.5,4.2)node[left=-2pt]{G\#} -- (4.5,4);
+\draw[->,uared, thick, >=stealth] (6.3,4)node[right=-2pt]{D\#} -- (5.3,3.8);
+\draw[->,uared, thick, >=stealth] (7,3)node[right=-2pt]{C} -- (6,2.8);
+\draw[->,uared, thick, >=stealth] (7.5,3.6)node[right=-2pt]{F\#} -- (6.4,3.3);
+\end{tikzpicture}
 \begin{block}{Audiofragment:}
 \texttt{A-flat-note.aup} 
 \end{block}
 \end{frame}
 
 \begin{frame}
-\frametitle{\'E\'en enkele noot (2)}
-\includegraphics[width=\textwidth]{images/A-flat-harmonic.png}
+\frametitle{Een enkele noot (gitaar) (2)}
+\begin{tikzpicture}
+\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=\textwidth]{images2/A-flat-harmonic.png}};
+\draw[->,uared, thick, >=stealth] (2.5,4)node[left=-2pt]{G\#} -- (3.5,3.8);
+\draw[->,uared, thick, >=stealth] (6.5,3.8)node[right=-2pt]{D\#} -- (5.8,3.5);
+\draw[->,uared, thick, >=stealth] (7,3)node[right=-2pt]{C} -- (6.5,2.5);
+\end{tikzpicture}
 \begin{block}{Audiofragment:}
 \texttt{A-flat-harmonic.aup} 
 \end{block}
 \end{frame}
 
 \begin{frame}
-\frametitle{\'e\'en enkele noot: conclusie}
+\frametitle{Een enkele noot: conclusie}
 \begin{itemize}
 \item Grondnoot is in beide gevallen duidelijk herkenbaar.
-\item Harmoniek: enkel even boventonen van grondtoon.  
-\item Noot: alle boventonen aanwezig. 
 \item Verschil gitaar/piano: zelfde boventonen maar andere amplitudes. 
 \item Kleinere schijnbaar onverklaarbare pieken door discretisatie van signaal. 
 \end{itemize}
@@ -334,17 +356,12 @@ Wat gebeurt er wanneer de inputspanning de maximumspanning nadert?
 
 
 \begin{frame}
-\frametitle{C-noot}
-\includegraphics[width=\textwidth]{images/C-note.png}
-\begin{block}{Audiofragment:}
-\texttt{C-note.aup} 
-\end{block}
-\end{frame}
-
-
-\begin{frame}
 \frametitle{C-akkoord}
-\includegraphics[width=\textwidth]{images/C-powerchord.png}
+\begin{tikzpicture}
+\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=\textwidth]{images2/C-powerchord.png}};
+\draw[->,uared, thick, >=stealth] (4.5,4)node[left=-2pt]{C} -- (5.5,3.8);
+\draw[->,uared, thick, >=stealth] (7,3.8)node[right=-2pt]{G} -- (6,3.5);
+\end{tikzpicture}
 \begin{block}{Audiofragment:}
 \texttt{C-powerchord.aup}
 \end{block}
@@ -352,7 +369,11 @@ Wat gebeurt er wanneer de inputspanning de maximumspanning nadert?
 
 \begin{frame}
 \frametitle{C-akkoord (2)}
-\includegraphics[width=\textwidth]{images/C-powerchord-overdriven.png}
+\begin{tikzpicture}
+\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=\textwidth]{images2/C-powerchord-overdriven.png}};
+\draw[->,uared, thick, >=stealth] (4.5,4)node[left=-2pt]{C} -- (5.5,3.8);
+\draw[->,uared, thick, >=stealth] (7,3.8)node[right=-2pt]{G} -- (6,3.5);
+\end{tikzpicture}
 \begin{block}{Audiofragment:}
 \texttt{C-powerchord-overdriven.aup}
 \end{block}
@@ -360,7 +381,11 @@ Wat gebeurt er wanneer de inputspanning de maximumspanning nadert?
 
 \begin{frame}
 \frametitle{C-akkoord (3)}
-\includegraphics[width=\textwidth]{images/C-powerchord-heavily-distorted.png}
+\begin{tikzpicture}
+\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=\textwidth]{images2/C-powerchord-heavily-distorted.png}};
+\draw[->,uared, thick, >=stealth] (4.5,4)node[left=-2pt]{C} -- (5.5,3.8);
+\draw[->,uared, thick, >=stealth] (7,3.8)node[right=-2pt]{G} -- (6,3.5);
+\end{tikzpicture}
 \begin{block}{Audiofragment:}
 \texttt{C-powerchord-heavily-distorted.aup} 
 \end{block}
@@ -376,9 +401,22 @@ Wat gebeurt er wanneer de inputspanning de maximumspanning nadert?
 
 \begin{frame}
 \frametitle{C-akkoord (4)}
-\includegraphics[width=\textwidth]{images/C-major-chord.png}
+\begin{tikzpicture}
+\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=\textwidth]{images2/C-major-chord.png}};
+\draw[->,uared, thick, >=stealth] (2.8,3.8)node[left=-2pt]{C} -- (3.8,3.5);
+\draw[->,uared, thick, >=stealth] (3.5,4.2)node[left=-2pt]{G} -- (4.5,3.8);
+\draw[->,uared, thick, >=stealth] (6.2,4)node[right=-2pt]{E} -- (5.3,3.5);
+\end{tikzpicture}
 \begin{block}{Audiofragment:}
 \texttt{C-major-chord.aup} 
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{C-noot: piano vs gitaar}
+\includegraphics[width=\textwidth]{images2/C-note.png}
+\begin{block}{Audiofragment:}
+\texttt{C-note.aup} 
 \end{block}
 \end{frame}
 
