@@ -19,3 +19,6 @@ pdfcrop thirds.pdf thirds-cropped.pdf
 
 lilypond major-chord.ly
 pdfcrop major-chord.pdf major-chord-cropped.pdf
+
+lilypond chord.ly
+pdfcrop chord.pdf chord-cropped.pdf
