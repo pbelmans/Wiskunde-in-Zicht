@@ -675,79 +675,53 @@
     \end{aligned}
   \end{equation}
   maar het linkerlid is even, het rechterlid oneven.
-\end{frame}
-
-
-\section{Hoe kunnen we dit oplossen?}
-
-\begin{frame}
-  \frametitle{Geschiedenis}
-
-  De scenario's:
-  \begin{description}[middeleeuwen]
-    \item[Pythagoras] strak vasthouden aan de perfecte verhoudingen, goed in theorie, slecht in praktijk
-    \item[middeleeuwen] variaties op Pythagoras: het ``wolfinterval'' dat ontstaat door de strikte toepassing van Pythagoras' theorie wordt uitgesmeerd over meerdere noten
-    \item[hedendaags] we nemen gelijke stappen, de \alert{gelijkzwevende stemming}
-  \end{description}
   \pause
-  \begin{block}{Chronologie gelijkzwevende stemming}
-    \begin{enumerate}
-      \item 4e eeuw voor Christus: Aristoxenus
-      \item 1584: Vincenzo Galilei (vader van)
-      \item 1605: Simon Stevin (Belgisch wiskundige!) beschrijft voor het eerst de huidige stemming, \emph{Van de Spiegeling der singconst}
-      \item \ldots
-    \end{enumerate}
+  \begin{block}{Onoplosbaar}
+    Dit probleem is niet op te lossen, en hangt nu eenmaal af van onze keuze om si kruis en do gelijk te stellen.
+  \end{block}
+  We zullen daarom gewoon beginnen bouwen, en zien waar het misloopt.
+\end{frame}
+
+\begin{frame}
+  \frametitle{We bouwen onze toonladder}
+
+  We bouwen een toonladder met als basis de kwint $3:2$ en terts $5:4$
+  \begin{center}
+    \begin{tabular}{ccccccccc}
+      noot & do & re & mi & fa & sol & la & si & do \\
+      verhouding & $1:1$ & \onslide<3->{$9:8$} & $5:4$ & \onslide<2->{$4:3$} & $3:2$ & \onslide<4->{$5:3$} & \onslide<5->{$15:8$} & $2:1$
+    \end{tabular}
+  \end{center}
+  \begin{enumerate}
+    \item<2-> fa is omgekeerde kwint, $(3:2)^{-1}=(4:3)$
+    \item<3-> re is twee kwinten, $(3:2)^2=(9:8)$ (we negeren octaven)
+    \item<4-> la is kleine terts naar beneden (= kwint min grote terts), $((3:2)(5:4)^{-1})^{-1}=(5:3)$
+    \item<5-> si is grote terts boven kwint, $(3:2)(5:4)=(15:8)$
+  \end{enumerate}
+
+  \onslide<6->{Door wiskunde te gebruiken kunnen we heel makkelijk rekenen met intervallen!}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Wat is er mis met deze toonladder?}
+
+  We hebben si\# = do genomen: \alert{enharmonie}.
+  \pause
+  Maar daardoor gaan bepaalde (enharmonische) intervallen niet meer juist klinken\ldots
+  \pause
+  \begin{block}{Voorbeeld van een wolfinterval}
+    De elf kwinten zijn perfect gekozen (want exact $3:2$), de twaalfde kwint is dus significant te klein.
+  \end{block}
+  \pause
+  Er is nog een ander probleem.
+  \begin{block}{Voorbeeld van problemen met stapelen}
+    \begin{itemize}
+      \item de sixt in do groot: $5:3$
+      \item de seconde in sol groot: $9:8$, en dus $(3:2)(9:8)=27:16$ tegenover do
+    \end{itemize}
+    We kunnen dus niet zomaar moduleren!
   \end{block}
 \end{frame}
-
-\begin{frame}
-  \frametitle{Hoeveel noten hebben we nodig?}
-
-  \begin{center}
-    \begin{tikzpicture}
-      \foreach \t/\n in {1/1, 9/8, 5/4, 4/3, 3/2, 5/3, 15/8, 2/1} {
-        \draw (2, {5*ln(\t/\n)/ln(2)}) --++ (8, 0);
-      };
-      \draw[thick] (2, {5*ln(3/2)/ln(2)}) --++ (8, 0);
-      \draw[thick] (2, {5*ln(1/1)/ln(2)}) --++ (8, 0);
-      \draw[thick] (2, {5*ln(2/1)/ln(2)}) --++ (8, 0);
-  
-      \foreach \k in {5,...,19} {
-        \draw (\k/2,-.5) node {\k};
-        \foreach \m in {0,...,\k} {
-          \draw[fill] (\k/2, 5*\m/\k) circle (1pt);
-        };
-      };
-    \end{tikzpicture}
-  \end{center}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Grootte van de fout}
-
-  \begin{center}
-    \begin{tikzpicture}
-      \begin{axis}[width = \textwidth, height = .9\textheight, ytick=\empty, xlabel = {aantal noten}, ylabel = {cumulatieve fout}, xtick pos = left]
-        \addplot[uablue, mark = *] table {error.dat};
-      \end{axis}
-    \end{tikzpicture}
-  \end{center}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Daarom do-re-mi-fa-sol-la-si!}
-
-  \begin{block}{Conclusie}
-    We zien dat \alert{12 gelijke tonen} de volgende eigenschappen heeft:
-    \begin{enumerate}
-      \item bijna perfecte kwint, kwart, seconde
-      \item alles is regelmatig
-      \item niet te veel noten
-      \item houdt steek met de vaststelling rond 7 octaven, 12 kwinten
-    \end{enumerate}
-  \end{block}
-\end{frame}
-
 
 \section{Rekenen met toonhoogtes}
 
@@ -790,7 +764,7 @@
 \begin{frame}
   \frametitle{Cents}
 
-  We hebben een octaaf in 12 gelijke delen (exponentieel gezien) opgedeeld. Daarom: stel $f_1$ en~$f_2$ de frequenties van twee noten, dan is
+  We zullen een octaaf in 12 gelijke delen (exponentieel gezien) opdelen (we weten nog niet waarom!). Daarom: stel $f_1$ en~$f_2$ de frequenties van twee noten, dan is
   \begin{equation}
     1200\cdot\log_2\left( \frac{f_2}{f_1} \right)=1200\cdot\left( \log_2(f_2)-\log_2(f_1) \right)
   \end{equation}
@@ -814,7 +788,7 @@
   \begin{center}
     \begin{tikzpicture}
       \draw ({exp(1+0/12)*1.5},0) circle (.1pt) node [above] {\small $\SI{130.81}{\hertz}$};
-      \draw ({exp(1+5/12)*1.5},0) circle (.1pt) node [above, xshift = -10pt] {\small $\SI{174.61}{\hertz}$};
+      \draw ({exp(1+5/12)*1.5},0) circle (.1pt) node [above, xshift = -5pt] {\small $\SI{174.61}{\hertz}$};
       \draw ({exp(1+7/12)*1.5},0) circle (.1pt) node [above, xshift = 10pt] {\small $\SI{196}{\hertz}$};
       \draw ({exp(1+12/12)*1.5},0) circle (.1pt) node [above] {\small $\SI{261.63}{\hertz}$};
       \foreach \k in {0,...,12} \draw [fill] ({exp(1+\k/12)*1.5},0) circle (.5pt);
@@ -823,6 +797,76 @@
       \foreach \k in {0} \draw [fill, uared] ({exp(1+\k+7/12)*1.5},0) circle (1pt) node [below] {sol};
     \end{tikzpicture}
   \end{center}
+\end{frame}
+
+
+\section{Hoe kunnen we ons probleem oplossen?}
+\begin{frame}
+  \frametitle{Geschiedenis}
+
+  De scenario's:
+  \begin{description}[middeleeuwen]
+    \item[Pythagoras] strak vasthouden aan de perfecte verhoudingen, goed in theorie, slecht in praktijk
+    \item[middeleeuwen] variaties op Pythagoras: het ``wolfinterval'' dat ontstaat door de strikte toepassing van Pythagoras' theorie wordt uitgesmeerd over meerdere noten
+    \item[hedendaags] we nemen gelijke stappen, de \alert{gelijkzwevende stemming}
+  \end{description}
+  \pause
+  \begin{block}{Chronologie gelijkzwevende stemming}
+    \begin{enumerate}
+      \item 4e eeuw voor Christus: Aristoxenus
+      \item 1584: Vincenzo Galilei (vader van)
+      \item 1605: Simon Stevin (Belgisch wiskundige!) beschrijft voor het eerst de huidige stemming, \emph{Van de Spiegeling der singconst}
+      \item \ldots
+    \end{enumerate}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hoeveel noten hebben we nodig?}
+
+  \begin{center}
+    \begin{tikzpicture}
+      \foreach \t/\n/\name in {1/1/do, 9/8/re, 5/4/mi, 4/3/fa, 3/2/sol, 5/3/la, 15/8/si, 2/1/do} {
+        \draw (2, {5*ln(\t/\n)/ln(2)}) --++ (8, 0) node[right] {\name $(\t:\n)$};
+      };
+      \draw[thick] (2, {5*ln(3/2)/ln(2)}) --++ (8, 0);
+      \draw[thick] (2, {5*ln(1/1)/ln(2)}) --++ (8, 0);
+      \draw[thick] (2, {5*ln(2/1)/ln(2)}) --++ (8, 0);
+  
+      \foreach \k in {5,...,19} {
+        \draw (\k/2,-.5) node {\k};
+        \foreach \m in {0,...,\k} {
+          \draw[fill] (\k/2, 5*\m/\k) circle (1pt);
+        };
+      };
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Grootte van de fout}
+
+  \begin{center}
+    \begin{tikzpicture}
+      \begin{axis}[width = \textwidth, height = .9\textheight, ytick=\empty, xlabel = {aantal noten}, ylabel = {cumulatieve fout}, xtick pos = left]
+        \addplot[uablue, mark = *] table {error.dat};
+      \end{axis}
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Daarom do-re-mi-fa-sol-la-si!}
+
+  \begin{block}{Conclusie}
+    We zien dat \alert{12 gelijke tonen} de volgende eigenschappen heeft:
+    \begin{enumerate}
+      \item bijna perfecte kwint, kwart, seconde
+      \item alles is regelmatig
+      \item niet te veel noten
+      \item houdt steek met de vaststelling rond 7 octaven, 12 kwinten
+    \end{enumerate}
+  \end{block}
 \end{frame}
 
 \begin{frame}
@@ -844,31 +888,8 @@
   Wanneer twee noten tegelijkertijd gespeeld worden en er zweving kan worden vastgesteld is het natuurlijk gemakkelijker.
 \end{frame}
 
-\begin{frame}
-  \frametitle{Hoeveel noten hebben we nodig?}
-
-  \begin{center}
-    \begin{tikzpicture}
-      \foreach \t/\n in {1/1, 9/8, 5/4, 4/3, 3/2, 5/3, 15/8, 2/1} {
-        \draw (2, {5*ln(\t/\n)/ln(2)}) --++ (8, 0);
-      };
-      \draw[thick] (2, {5*ln(3/2)/ln(2)}) --++ (8, 0);
-      \draw[thick] (2, {5*ln(1/1)/ln(2)}) --++ (8, 0);
-      \draw[thick] (2, {5*ln(2/1)/ln(2)}) --++ (8, 0);
-  
-      \foreach \k in {5,...,19} {
-        \draw (\k/2,-.5) node {\k};
-        \foreach \m in {0,...,\k} {
-          \draw[fill] (\k/2, 5*\m/\k) circle (1pt);
-        };
-      };
-    \end{tikzpicture}
-  \end{center}
-\end{frame}
-
 
 \section{Hoe kan geluid ons bedotten?}
-% TODO: end the previous section with a remark hinting at the crappy way we experience sound, ties it in with this last section *and* afternoon
 \begin{frame}
   \frametitle{Illusies met geluid}
 
@@ -883,32 +904,6 @@
         \draw [thick,color=black,shift={(360/\n*\m:\r)},rotate=\twist+360/\n*\m] (.15,-.15) rectangle (.15,.15);
       }
   \end{tikzpicture}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Hoe do-re-mi-fa-sol-la-si ons bedot}
-
-  We weten nu dat
-  \begin{center}
-    \includegraphics{scores/scale-cropped}
-  \end{center}
-  overeenkomt met
-  \begin{center}
-    \begin{tabular}[h]{cccccccc}
-      do & re & mi & fa & sol & la & si \\\midrule
-      $\SI{131}{\hertz}$ & $\SI{147}{\hertz}$ & $\SI{165}{\hertz}$ & $\SI{175}{\hertz}$ & $\SI{196}{\hertz}$ & $\SI{220}{\hertz}$ & $\SI{247}{\hertz}$
-    \end{tabular}
-  \end{center}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Een oneindig stijgende toonladder}
-
-  Nu gebruiken we alle twaalf tonen:
-  \begin{center}
-    \includegraphics{scores/scale-full-cropped}
-  \end{center}
-  De frequenties zijn niet zo belangrijk\ldots
 \end{frame}
 
 \begin{frame}
@@ -947,21 +942,10 @@
   \frametitle{Paradox van Shepard}
 
   \includegraphics[width=\textwidth]{images/endless-copies.png}
-\end{frame}
 
-\begin{frame}
-  \frametitle{Observaties}
-
-  \begin{enumerate}
-    \item we horen de overgang niet, maar \alert{zien} hem wel
-    \item exponentieel stijgend
-  \end{enumerate}
-  \pause
-  \begin{block}{Paradox}
-    We kunnen ons gehoor bedotten.
+  \begin{block}{Toepassing}
+    Bassen op een klein membraan.
   \end{block}
-  \pause
-  Toepassing: basfrequenties op een klein membraan.
 \end{frame}
 
 \begin{frame}
@@ -995,7 +979,7 @@
   \begin{block}{\twonotes\ audiofragment}
     \texttt{samples/drumbeat.ogg} met willekeurig doorspoelen
   \end{block}
-  
 \end{frame}
+
 \end{document}
 
