@@ -59,12 +59,11 @@
 \begin{frame}
   \frametitle{Voor we beginnen}
 
+  We downloaden de samples waarmee we werken:
   \begin{enumerate}
-    \item Audacity downloaden: \\
-      \url{http://audacity.sourceforge.net/download/windows}, het zipbestand (!)
-
-    \item samples downloaden \\
-      \url{http://win.ua.ac.be/~pbelmans/wiskunde-in-zicht/}, \texttt{samples.zip} en dan uitpakken
+    \item ga naar \url{http://is.gd/WisinZ}
+    \item download \texttt{samples.zip}
+    \item en dan uitpakken (!)
   \end{enumerate}
 \end{frame}
 
@@ -88,7 +87,7 @@ Hoe beschrijft men deze functies?
 \begin{frame}
 \frametitle{Wat zijn de meest eenvoudige signalen?}
 \begin{itemize}
-\item Dit zijn de zgn.\ goniometrische functies 
+\item Dit zijn de goniometrische functies 
 \begin{equation*}
 f(t)=A\cos (\omega t) \quad \text{en} \quad g(t)=B\sin (\omega t),
 \end{equation*} 
@@ -96,10 +95,12 @@ met $A$ en $B$ de amplitude en $\omega$ de frequentie.
 \item Amplitude: $\frac{1}{2}$(het verschil tussen piek en dal)
 \item Frequentie: $($afstand tussen twee toppen van de golf$)^{-1}$
 \end{itemize}
-\begin{alertblock}{Vraag:}
-Hoe klinkt zo'n signaal? \\
-Kunnen we deze gebruiken om complexere signalen te beschrijven?  
-\end{alertblock}
+\begin{block}{Vraag}
+  \begin{enumerate}
+    \item Hoe klinkt zo'n signaal?
+    \item Kunnen we deze gebruiken om complexere signalen te beschrijven?  
+  \end{enumerate}
+\end{block}
 \end{frame}
 
 \begin{frame}
@@ -202,7 +203,7 @@ Vorige slide: grafische weergave van eerste 4 termen van fourierreeks:
 s(x)\approx\sin{(t)}+\frac{1}{\pi}\sin{(2t)}+\frac{2}{3\pi}\sin{(3t)}-
 \frac{1}{2\pi}\sin{(4t)}.
 \end{equation}
-\begin{block}{Opmerking:}
+\begin{block}{Opmerking}
 Dit is slechts een benadering! Deze wordt beter en beter naarmate er meer termen worden toegevoegd.
 \end{block}
 \end{frame}
@@ -254,8 +255,8 @@ Vorige slide: grafische weergave van eerste 4 termen van fourierreeks:
 s(x)\approx\frac{2}{\pi}\sin{(t)}-\frac{1}{\pi}\sin{(2t)}+\frac{2}{3\pi}\sin{(3t)}-
 \frac{1}{2\pi}\sin{(4t)}.
 \end{equation}
-\begin{block}{Opmerking:}
-Zaagtand (net zoals blokgolf) klinkt onnatuurlijk: het vergt oneindig veel energie om instantaan van pos. naar neg. om te flippen. 
+\begin{block}{Opmerking}
+  De zaagtand (net zoals de blokgolf) klinkt onnatuurlijk: de verticale stukken vereisen ``oneindig veel energie'' omdat we zonder overgang van~$1$ naar~$-1$ springen. Daarom kunnen dit soort geluiden nooit in de natuur voorkomen, en luisteren we ook nu naar een benadering. 
 \end{block}
 \end{frame}
 
@@ -284,9 +285,9 @@ Zaagtand (net zoals blokgolf) klinkt onnatuurlijk: het vergt oneindig veel energ
 \item Binnen deze grenzen: versterking lineair, d.w.z. elke frequentie in signaal wordt met zelfde factor versterkt.
 \item Levert cleane gitaarklank. 
 \end{itemize}
-\begin{alertblock}{Vraag:}
+\begin{block}{Vraag}
 Wat gebeurt er wanneer de inputspanning de maximumspanning nadert?
-\end{alertblock}
+\end{block}
 \end{frame}
 
 \begin{frame}
@@ -299,7 +300,7 @@ Wat gebeurt er wanneer de inputspanning de maximumspanning nadert?
 \begin{itemize}
 \item Versterking niet meer lineair: kleinere spanningen worden (relatief gezien) meer versterkt dan grotere.
 \item Toppen van golven met te grote amplitude worden afgerond: \textit{overdrive} of \textit{clipping} met vollere en warmere klank tot gevolg. 
-\item Distortion/hard clipping: Golftoppen worden afgekapt $\rightarrow$ vreemde componenten in spectrum
+\item Distortion/hard clipping: golftoppen worden afgekapt, dit levert vreemde componenten in spectrum
 \item Clipping levert typische rocksound.
 \end{itemize}
 \end{frame}
