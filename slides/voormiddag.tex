@@ -1,4 +1,4 @@
-\documentclass[compress, darktitle, framenumber, totalframenumber, handout]{beamer}
+\documentclass[compress, darktitle, framenumber, totalframenumber]{beamer}
 \usepackage[greek, dutch]{babel}
 \usepackage{booktabs}
 \usepackage{manfnt}
@@ -979,12 +979,23 @@
   \includegraphics[width=\textwidth]{images/glissando-spectrum.png}
 \end{frame}
 
-%\begin{frame}
-%  \frametitle{Een oneindig versnellende beat}
-%\end{frame}
-%
-%\begin{frame}
-%  \frametitle{Paradox van Risset}
-%\end{frame}
+\begin{frame}
+  \frametitle{Een oneindig versnellende beat}
+
+  \begin{block}{\twonotes\ audiofragment}
+    \texttt{samples/drumbeat.ogg}
+  \end{block}
+
+  \begin{enumerate}
+    \item we versnellen de hele tijd
+    \item de snelste noten worden zachter
+    \item de traagste worden sterker
+  \end{enumerate}
+  \pause
+  \begin{block}{\twonotes\ audiofragment}
+    \texttt{samples/drumbeat.ogg} met willekeurig doorspoelen
+  \end{block}
+  
+\end{frame}
 \end{document}
 
