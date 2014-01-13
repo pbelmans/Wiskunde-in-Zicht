@@ -1,0 +1,20 @@
+\frametitle{Een analogie met vectoren}
+\begin{itemize}
+\item Een vector kan geschreven worden als $\vec{v}=a\vec{e}_x+b\vec{e}_y.$
+\end{itemize}
+\begin{center}
+\begin{tikzpicture}[scale=1.5]
+    % Draw axes
+    \draw [>=stealth,<->,thick] (0,1.5) node (yaxis) [above] {$y$}
+        |- (3,0) node (xaxis) [right] {$x$};
+    % Draw two intersecting lines
+    \draw[uared!80, ultra thick, >=stealth,->] (0,0) coordinate (a_1) -- (2,1.2) node[midway, left]{$\vec{v}$} coordinate (c);
+    % Draw lines indicating intersection with y and x axis. Here we use
+    % the perpendicular coordinate system
+    \draw[dashed] (yaxis |- c) node[left] {$b$}
+        -| (xaxis -| c) node[below] {$a$};
+\end{tikzpicture}
+\end{center}
+\begin{itemize}
+\item We willen iets gelijkaardigs doen met signalen: deze schrijven als lineaire combinaties van ``basisfuncties''.
+\end{itemize}

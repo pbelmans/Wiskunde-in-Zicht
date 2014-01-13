@@ -58,13 +58,20 @@
 
 \begin{frame}
   \frametitle{Voor we beginnen}
-
-  We downloaden de samples waarmee we werken:
+Log-in en wachtwoord computers: US103User \\[.2cm] \noindent
+We downloaden de samples waarmee we werken:
   \begin{enumerate}
     \item ga naar \url{http://is.gd/WisinZ}
     \item download \texttt{samples.zip}
     \item en dan uitpakken (!)
   \end{enumerate}
+Instellingen Audacity:
+\begin{enumerate}
+\item Venstertype: Blackman-Harris
+\item Grootte: 1024-2048
+\item Frequentie-as: Logaritmisch
+\end{enumerate}  
+  
 \end{frame}
 
 \section{Fourierreeksen}
@@ -105,10 +112,11 @@ met $A$ en $B$ de amplitude en $\omega$ de frequentie.
 
 \begin{frame}
 \frametitle{Sinusgolf}
-\includegraphics[width=\textwidth]{images/Sin_wave.png}
 \begin{block}{Audiofragment}
 \texttt{Sin\_wave.aup}
 \end{block}
+\pause
+\includegraphics[width=\textwidth]{images/Sin_wave.png}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -210,10 +218,11 @@ Dit is slechts een benadering! Deze wordt beter en beter naarmate er meer termen
 
 \begin{frame}
 \frametitle{Blokgolf (4)}
-\includegraphics[width=\textwidth]{images/Square_wave.png}
 \begin{block}{Audiofragment:}
 \texttt{Square\_wave.aup} 
 \end{block} 
+\pause
+\includegraphics[width=\textwidth]{images/Square_wave.png}
 \end{frame}
 
 
@@ -262,13 +271,14 @@ s(x)\approx\frac{2}{\pi}\sin{(t)}-\frac{1}{\pi}\sin{(2t)}+\frac{2}{3\pi}\sin{(3t
 
 \begin{frame}
 \frametitle{Zaagtand golf (3)}
-\includegraphics[width=\textwidth]{images/Sawtooth_wave.png}
 \begin{block}{Audiofragment:}
 \texttt{Sawtooth\_wave.aup}
 \end{block}
+\pause
+\includegraphics[width=\textwidth]{images/Sawtooth_wave.png}
 \end{frame}
 
-\section{Gitaarfragmenten}
+\section{Instrumenten analyseren}
 
 \begin{frame}
 \frametitle{Hoe ontstaat gitaargeluid?}
@@ -285,6 +295,9 @@ s(x)\approx\frac{2}{\pi}\sin{(t)}-\frac{1}{\pi}\sin{(2t)}+\frac{2}{3\pi}\sin{(3t
 \item Binnen deze grenzen: versterking lineair, d.w.z. elke frequentie in signaal wordt met zelfde factor versterkt.
 \item Levert cleane gitaarklank. 
 \end{itemize}
+\begin{block}{Audiofragment}
+\texttt{Cleanguitar-sample.aup}
+\end{block}
 \begin{block}{Vraag}
 Wat gebeurt er wanneer de inputspanning de maximumspanning nadert?
 \end{block}
@@ -303,47 +316,68 @@ Wat gebeurt er wanneer de inputspanning de maximumspanning nadert?
 \item Distortion/hard clipping: golftoppen worden afgekapt, dit levert vreemde componenten in spectrum
 \item Clipping levert typische rocksound.
 \end{itemize}
+\begin{block}{Audiofragment}
+\texttt{Overdriveguitar-sample.aup}
+\end{block}
 \end{frame}
 
 \begin{frame}
 \frametitle{Een enkele noot (piano)}
-\begin{tikzpicture}
-\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=\textwidth]{images2/Piano-A-flat.png}};
-\draw[->,uared, thick, >=stealth] (3.8,4.2)node[left=-2pt]{G\#} -- (4.8,4);
-\draw[->,uared, thick, >=stealth] (7.5,4)node[right=-2pt]{D\#} -- (6.8,3.8);
-\draw[->,uared, thick, >=stealth] (8,3.2)node[right=-2pt]{C} -- (7.5,2.8);
-\end{tikzpicture}
 \begin{block}{Audiofragment:}
 \texttt{Piano-G-sharp.aup} 
 \end{block}
+\pause
+\begin{tikzpicture}
+\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=\textwidth]{images2/Piano-A-flat.png}};
+\draw[->,uared, thick, >=stealth] (3.8,4.2)node[left=-2pt]{G\#=A$\flat$} -- (4.8,4);
+\draw[->,uared, thick, >=stealth] (7.5,4)node[right=-2pt]{D\#=E$\flat$} -- (6.8,3.8);
+\draw[->,uared, thick, >=stealth] (8,3.2)node[right=-2pt]{C=B\#} -- (7.5,2.8);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+\frametitle{Een enkele noot (mondharmonica)}
+\begin{block}{Audiofragment:}
+\texttt{Harmonica-G-note.aup} 
+\end{block}
+\pause
+\begin{tikzpicture}
+\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=\textwidth]{images2/Harmonica-G-note.png}};
+\draw[->,uared, thick, >=stealth] (5.2,4)node[left=-2pt]{G} -- (6,3.8);
+\draw[->,uared, thick, >=stealth] (8,4)node[right=-2pt]{G} -- (7.1,3.8);
+\draw[->,uared, thick, >=stealth] (8.4,3.2)node[right=-2pt]{D} -- (7.7,2.8);
+\draw[->,uared, thick, >=stealth] (9.2,4)node[right=-2pt]{B} -- (8.5,3.8);
+\end{tikzpicture}
 \end{frame}
 
 \begin{frame}
 \frametitle{Een enkele noot (gitaar)}
-\begin{tikzpicture}
-\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=\textwidth]{images2/A-flat.png}};
-\draw[->,uared, thick, >=stealth] (2.5,4)node[left=-2pt]{G\#} -- (3.5,3.8);
-\draw[->,uared, thick, >=stealth] (3.5,4.2)node[left=-2pt]{G\#} -- (4.5,4);
-\draw[->,uared, thick, >=stealth] (6.3,4)node[right=-2pt]{D\#} -- (5.3,3.8);
-\draw[->,uared, thick, >=stealth] (7,3)node[right=-2pt]{C} -- (6,2.8);
-\draw[->,uared, thick, >=stealth] (7.5,3.6)node[right=-2pt]{F\#} -- (6.4,3.3);
-\end{tikzpicture}
 \begin{block}{Audiofragment:}
 \texttt{A-flat-note.aup} 
 \end{block}
+\pause
+\begin{tikzpicture}
+\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=\textwidth]{images2/A-flat.png}};
+\draw[->,uared, thick, >=stealth] (2.5,3.8)node[left=-2pt]{G\#=A$\flat$} -- (3.5,3.6);
+\draw[->,uared, thick, >=stealth] (3.5,4.2)node[left=-2pt]{G\#=A$\flat$} -- (4.5,4);
+\draw[->,uared, thick, >=stealth] (6.3,4)node[right=-2pt]{D\#=E$\flat$} -- (5.3,3.8);
+\draw[->,uared, thick, >=stealth] (7,3)node[right=-2pt]{C=B\#} -- (6,2.8);
+\draw[->,uared, thick, >=stealth] (7.5,3.6)node[right=-2pt]{F\#=G$\flat$} -- (6.4,3.3);
+\end{tikzpicture}
 \end{frame}
 
 \begin{frame}
 \frametitle{Een enkele noot (gitaar) (2)}
-\begin{tikzpicture}
-\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=\textwidth]{images2/A-flat-harmonic.png}};
-\draw[->,uared, thick, >=stealth] (2.5,4)node[left=-2pt]{G\#} -- (3.5,3.8);
-\draw[->,uared, thick, >=stealth] (6.5,3.8)node[right=-2pt]{D\#} -- (5.8,3.5);
-\draw[->,uared, thick, >=stealth] (7,3)node[right=-2pt]{C} -- (6.5,2.5);
-\end{tikzpicture}
 \begin{block}{Audiofragment:}
 \texttt{A-flat-harmonic.aup} 
 \end{block}
+\pause
+\begin{tikzpicture}
+\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=\textwidth]{images2/A-flat-harmonic.png}};
+\draw[->,uared, thick, >=stealth] (2.5,4)node[left=-2pt]{G\#=A$\flat$} -- (3.5,3.8);
+\draw[->,uared, thick, >=stealth] (6.5,3.8)node[right=-2pt]{D\#=E$\flat$} -- (5.8,3.5);
+\draw[->,uared, thick, >=stealth] (7,3)node[right=-2pt]{C=B\#} -- (6.5,2.5);
+\end{tikzpicture}
 \end{frame}
 
 \begin{frame}
@@ -351,45 +385,104 @@ Wat gebeurt er wanneer de inputspanning de maximumspanning nadert?
 \begin{itemize}
 \item Grondnoot is in beide gevallen duidelijk herkenbaar.
 \item Verschil gitaar/piano: zelfde boventonen maar andere amplitudes. 
-\item Kleinere schijnbaar onverklaarbare pieken door discretisatie van signaal. 
+\item Kleinere pieken door discretisatie van signaal en algoritme. 
 \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Oefening: juiste noten herkennen}
+\begin{block}{Audiofragment:}
+\texttt{Note1.aup} \\
+\texttt{Note2.aup} \\
+\texttt{Note3.aup} 
+\end{block}
+\end{frame}
+%Oplossing
+%\texttt{Note1.aup} is een D\\
+%\texttt{Note2.aup} is een E\\
+%\texttt{Note3.aup} is een A 
+
+\begin{frame}
+\frametitle{Fragment 1}
+\includegraphics[width=\textwidth]{images2/Note1.png}
+\end{frame}
+
+\begin{frame}
+\frametitle{Fragment 2}
+\includegraphics[width=\textwidth]{images2/Note2.png}
+\end{frame}
+
+\begin{frame}
+\frametitle{Fragment 3}
+\includegraphics[width=\textwidth]{images2/Note3.png}
+\end{frame}
+
+\begin{frame}
+\frametitle{C-noot: gitaar vs. mondharmonica}
+\begin{block}{Audiofragment:}
+\texttt{Exercise-sample1.aup} \\
+\texttt{Exercise-sample2.aup} \\
+\texttt{Exercise-sample3.aup} 
+\end{block}
+\end{frame}
+%Oplossing
+%\texttt{Exercise-sample1.aup} is mondharmonica \\
+%\texttt{Exercise-sample2.aup} is  akoestische gitaar \\
+%\texttt{Exercise-sample3.aup} is elektrische gitaar
+
+\begin{frame}
+\frametitle{Fragment 1}
+\includegraphics[width=\textwidth]{images2/Exercise-sample1.png}
+\end{frame}
+
+\begin{frame}
+\frametitle{Fragment 2}
+\includegraphics[width=\textwidth]{images2/Exercise-sample2.png}
+\end{frame}
+
+\begin{frame}
+\frametitle{Fragment 3}
+\includegraphics[width=\textwidth]{images2/Exercise-sample3.png}
 \end{frame}
 
 
 \begin{frame}
 \frametitle{C-akkoord}
+\begin{block}{Audiofragment:}
+\texttt{C-powerchord.aup}
+\end{block}
+\pause
 \begin{tikzpicture}
 \node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=\textwidth]{images2/C-powerchord.png}};
 \draw[->,uared, thick, >=stealth] (4.5,4)node[left=-2pt]{C} -- (5.5,3.8);
 \draw[->,uared, thick, >=stealth] (7,3.8)node[right=-2pt]{G} -- (6,3.5);
 \end{tikzpicture}
-\begin{block}{Audiofragment:}
-\texttt{C-powerchord.aup}
-\end{block}
 \end{frame}
 
 \begin{frame}
 \frametitle{C-akkoord (2)}
+\begin{block}{Audiofragment:}
+\texttt{C-powerchord-overdriven.aup}
+\end{block}
+\pause
 \begin{tikzpicture}
 \node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=\textwidth]{images2/C-powerchord-overdriven.png}};
 \draw[->,uared, thick, >=stealth] (4.5,4)node[left=-2pt]{C} -- (5.5,3.8);
 \draw[->,uared, thick, >=stealth] (7,3.8)node[right=-2pt]{G} -- (6,3.5);
 \end{tikzpicture}
-\begin{block}{Audiofragment:}
-\texttt{C-powerchord-overdriven.aup}
-\end{block}
 \end{frame}
 
 \begin{frame}
 \frametitle{C-akkoord (3)}
+\begin{block}{Audiofragment:}
+\texttt{C-powerchord-heavily-distorted.aup} 
+\end{block}
+\pause
 \begin{tikzpicture}
 \node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=\textwidth]{images2/C-powerchord-heavily-distorted.png}};
 \draw[->,uared, thick, >=stealth] (4.5,4)node[left=-2pt]{C} -- (5.5,3.8);
 \draw[->,uared, thick, >=stealth] (7,3.8)node[right=-2pt]{G} -- (6,3.5);
 \end{tikzpicture}
-\begin{block}{Audiofragment:}
-\texttt{C-powerchord-heavily-distorted.aup} 
-\end{block}
 \end{frame}
 
 \begin{frame}
@@ -402,33 +495,18 @@ Wat gebeurt er wanneer de inputspanning de maximumspanning nadert?
 
 \begin{frame}
 \frametitle{C-akkoord (4)}
+\begin{block}{Audiofragment:}
+\texttt{C-major-chord.aup} 
+\end{block}
+\pause
 \begin{tikzpicture}
 \node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=\textwidth]{images2/C-major-chord.png}};
 \draw[->,uared, thick, >=stealth] (2.8,3.8)node[left=-2pt]{C} -- (3.8,3.5);
 \draw[->,uared, thick, >=stealth] (3.5,4.2)node[left=-2pt]{G} -- (4.5,3.8);
 \draw[->,uared, thick, >=stealth] (6.2,4)node[right=-2pt]{E} -- (5.3,3.5);
 \end{tikzpicture}
-\begin{block}{Audiofragment:}
-\texttt{C-major-chord.aup} 
-\end{block}
 \end{frame}
 
-\begin{frame}
-\frametitle{C-noot: piano vs gitaar}
-\includegraphics[width=\textwidth]{images2/C-note.png}
-\begin{block}{Audiofragment:}
-\texttt{C-note.aup} 
-\end{block}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Extra}
-\begin{block}{Audiofragment:}
-\texttt{F-sharp-chord.aup} \\
-\texttt{F-sharp-chord-overdriven.aup} \\
-\end{block}
-\end{frame}
 
 \section{A Hard Day's Night}
 
