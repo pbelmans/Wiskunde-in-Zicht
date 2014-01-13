@@ -1,4 +1,4 @@
-\documentclass[compress, darktitle, framenumber, totalframenumber]{beamer}
+\documentclass[compress, darktitle, framenumber, totalframenumber, handout]{beamer}
 \usepackage[greek, dutch]{babel}
 \usepackage{booktabs}
 \usepackage{manfnt}
@@ -126,7 +126,7 @@
 
   \pause
 
-  Als we een periodiek signaal geven, met een geheel veelvoud van de frequentie waarmee het langsheen het touw reist, krijgen we een \alert{staande golf}.
+  Als we een periodiek signaal geven, met een geheel veelvoud van de frequentie waarmee het langsheen het touw reist, krijgen we een \alert{staande golf}: deze versterkt zichzelf.
 \end{frame}
 
 \begin{frame}
@@ -177,9 +177,9 @@
   \pause
   \begin{enumerate}
     \item menselijke stem: $85$ tot $\SI{180}{\hertz}$ voor mannen, $165$ tot $\SI{255}{\hertz}$ voor vrouwen;
-    \item viool $\SI{196}{\hertz}$ tot $\pm\SI{4.5}{\kilo\hertz}$;
-    \item gitaar: $\SI{83}{\hertz}$ tot $\SI{\pm 1}{\kilo\hertz}$;
-    \item piano: $\SI{27}{\hertz}$ tot $\SI{4.2}{\kilo\hertz}$.
+    \pause\item viool $\SI{196}{\hertz}$ tot $\pm\SI{4.5}{\kilo\hertz}$;
+    \pause\item gitaar: $\SI{83}{\hertz}$ tot $\SI{\pm 1}{\kilo\hertz}$;
+    \pause\item piano: $\SI{27}{\hertz}$ tot $\SI{4.2}{\kilo\hertz}$.
   \end{enumerate}
   \pause
   Dit is de frequentie van de \alert{grondtoon}. Stem of muziek is \emph{veel meer dan dit}! Maar voor onze perceptie van ``toonhoogte'' is deze frequentie wel essentieel.
@@ -345,8 +345,9 @@
 
   Stel $f_1=\SI{16}{\hertz}$, $f_2=\SI{17}{\hertz}$:
 
-  \centering
-  \frequencydiagram{16}{1}{1.0625}{16}{17}
+  \begin{center}
+    \frequencydiagram{16}{1}{1.0625}{16}{17}
+  \end{center}
 
   \onslide<2>{We zien opnieuw een golfpatroon met frequentie $\SI{1}{\hertz}=\SI{17}{\hertz}-\SI{16}{\hertz}$}
 \end{frame}
@@ -827,7 +828,7 @@
   \begin{center}
     \begin{tikzpicture}
       \foreach \t/\n/\name in {1/1/do, 9/8/re, 5/4/mi, 4/3/fa, 3/2/sol, 5/3/la, 15/8/si, 2/1/do} {
-        \draw (2, {5*ln(\t/\n)/ln(2)}) --++ (8, 0) node[right] {\name $(\t:\n)$};
+        \draw (2, {5*ln(\t/\n)/ln(2)}) --++ (8, 0) node[right] {\name\ \ $(\t:\n)$};
       };
       \draw[thick] (2, {5*ln(3/2)/ln(2)}) --++ (8, 0);
       \draw[thick] (2, {5*ln(1/1)/ln(2)}) --++ (8, 0);
@@ -864,7 +865,7 @@
       \item bijna perfecte kwint, kwart, seconde
       \item alles is regelmatig
       \item niet te veel noten
-      \item houdt steek met de vaststelling rond 7 octaven, 12 kwinten
+      \item het staat (toevallig?) in verband met de 12 kwinten: de \emph{minimale} keuze voldoet blijkbaar (als we niet al te veeleisend zijn)
     \end{enumerate}
   \end{block}
 \end{frame}
