@@ -732,7 +732,7 @@
   Daarom willen we een \alert{relatieve} manier van werken!
   \begin{enumerate}
     \item onafhankelijk van octaaf en basisfrequentie;
-    \item een \alert{lineaire schaal}
+    \item een \alert{lineaire} voorstelling: de gegevens worden te snel te groot
   \end{enumerate}
   \begin{center}
     \begin{tikzpicture}
@@ -741,6 +741,11 @@
       \foreach \k in {0,1,2} \draw [fill, uared] ({(12*\k+7)/6},0) circle (1pt) node [below] {sol};
     \end{tikzpicture}
   \end{center}
+  \pause
+  \begin{block}{Logaritmische schaal}
+    Hiervoor gebruiken we een \emph{logaritmische schaal}: we transformeren onze data met~$\log_\alpha$.
+  \end{block}
+  Voorbeelden: schaal van Richter, decibels, pH-waarden, \ldots
 \end{frame}
 
 \begin{frame}
