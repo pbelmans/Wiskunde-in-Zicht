@@ -7,6 +7,7 @@
 \usepackage{marvosym}
 \usepackage{mathtools}
 \usepackage{pgfplots}
+\usepackage{pifont}
 \usepackage{siunitx}
 \usepackage{tikz}
 \usepackage{wasysym}
@@ -983,10 +984,62 @@
 
 \begin{frame}
   \frametitle{Experiment}
+
+  \begin{block}{Opdracht}
+    12 toonparen, schrijf op of de tweede van elk paar:
+    \begin{enumerate}
+      \item hoger,
+      \item of lager,
+    \end{enumerate}
+    is dan de eerste.
+  \end{block}
+  Er is geen juist of fout antwoord!
+
+  \pause
+
+  \begin{center}
+    \begin{tabular}{ccccccccccccc}
+      \toprule
+      & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\\midrule
+      hoger \onslide<3-|handout:0>{& & & \checkmark & \checkmark & \checkmark & \checkmark & & & \checkmark & & & \checkmark} \\
+      lager \onslide<3-|handout:0>{& \checkmark & \checkmark & & & & & \checkmark & \checkmark & & \checkmark & \checkmark} \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  
+  \onslide<3->{Hoeveel komen er overeen?}
 \end{frame}
 
 \begin{frame}
   \frametitle{Ontbrekende grondtoon}
+
+  \begin{center}
+    \small
+    \begin{tabular}{cc}
+      \toprule
+      eerste & tweede \\\midrule
+      \SI{300}{\hertz} & \SI{375}{\hertz} \\
+      \SI{450}{\hertz} & \SI{500}{\hertz} \\
+      \SI{600}{\hertz} & \SI{625}{\hertz} \\
+      \ldots & \ldots
+    \end{tabular}
+  \end{center}
+
+  \pause
+  
+  De \alert{ontbrekende grondtoon} van de eerste zou \SI{150}{\hertz} zijn, terwijl die van de tweede \SI{125}{\hertz} zou zijn.
+
+  De \alert{laagst aanwezige frequentie} in de eerste is echter \SI{300}{\hertz}, terwijl die in de tweede \SI{375}{\hertz} is.
+
+  \pause
+
+  Op basis waarvan moeten onze hersenen de hoogste kiezen?
+
+  \pause
+
+  \begin{block}{Conclusie}
+    Er zijn ``\alert{grondtoonhoorders}'' en ``\alert{boventoonhoorders}''!
+  \end{block}
 \end{frame}
 
 \end{document}
