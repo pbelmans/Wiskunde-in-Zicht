@@ -1,6 +1,7 @@
 \documentclass[compress, darktitle, framenumber, totalframenumber]{beamer}
 \usepackage{pgfplots}
 \usepackage{tikz}
+%\usepackage{tikzscale}
 \usetikzlibrary{arrows,matrix,positioning,shapes,fit,calc}
 \usepackage{xparse}
 \usepackage{graphicx}
@@ -58,19 +59,19 @@
 
 \begin{frame}
   \frametitle{Voor we beginnen}
-  Log-in en wachtwoord computers: \texttt{Guest Student}, \texttt{Ll2015} (dubbele $\ell$) \\[.2cm] \noindent
+  Log-in en wachtwoord computers: \texttt{Guest Student}, \texttt{L$\ell$2015}  \\[.2cm] \noindent
   We downloaden de samples waarmee we werken:
   \begin{enumerate}
     \item ga naar \url{http://is.gd/WisinZ}
     \item download \texttt{samples.zip}
     \item en dan uitpakken (!)
   \end{enumerate}
-Instellingen Audacity:
-\begin{enumerate}
-\item Venstertype: Blackman-Harris
-\item Grootte: 1024-2048
-\item Frequentie-as: Logaritmisch
-\end{enumerate}  
+%Instellingen Audacity:
+%\begin{enumerate}
+%\item Venstertype: Blackman-Harris
+%\item Grootte: 1024-2048
+%\item Frequentie-as: Logaritmisch
+%\end{enumerate}  
   
 \end{frame}
 
@@ -115,8 +116,17 @@ met $A$ en $B$ de amplitude en $\omega$ de frequentie.
 \begin{block}{Audiofragment}
 \texttt{Sin\_wave.aup}
 \end{block}
-\pause
-\includegraphics[width=\textwidth]{images/Sin_wave.png}
+Bij het analyseren van het spectrum kan je best:
+\begin{itemize}
+    \item Axis: Log frequency kiezen, 
+    \item Size groot genoeg nemen,
+    \item Window is minder belangrijk, bij voorkeur {\em Blackman-Harris}. 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Sinusgolf (2)}
+\includegraphics[width=0.95\textwidth]{images/SinWave.png}
 \end{frame}
 
 \begin{frame}[fragile]
